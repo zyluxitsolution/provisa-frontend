@@ -1,0 +1,122 @@
+import { cn } from "@/lib/utils";
+import Marquee from "./magicui/marquee";
+import SectionHeader from "./section-header";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
+
+const reviews = [
+  {
+    name: "David Heroc",
+    username: "The University of Australia",
+    body: "PROVISA provided me great assistance on my student visa approval. I really appreciate your efforts, consultation and customer services. Thank you PROVISA for guiding me through the right path in my life. You helped me with my life changing decision. I will be forever grateful for your help and great assistance.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Saman Shrestha",
+    username: "The University of Australia",
+    body: "I feel very lucky to be a part of PROVISA. I got perfect counselling during my test preparation, document preparation, visa application and SOP writing which helped me in visa approval. I would recommend PROVISA as a perfect education partner to everyone out there trying for international study.",
+
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "David Heroc",
+    username: "The University of Australia",
+    body: "PROVISA provided me great assistance on my student visa approval. I really appreciate your efforts, consultation and customer services. Thank you PROVISA for guiding me through the right path in my life. You helped me with my life changing decision. I will be forever grateful for your help and great assistance.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Saman Shrestha",
+    username: "The University of Australia",
+    body: "I feel very lucky to be a part of PROVISA. I got perfect counselling during my test preparation, document preparation, visa application and SOP writing which helped me in visa approval. I would recommend PROVISA as a perfect education partner to everyone out there trying for international study.",
+
+    img: "https://avatar.vercel.sh/jill",
+  },
+
+  {
+    name: "David Heroc",
+    username: "The University of Australia",
+    body: "PROVISA provided me great assistance on my student visa approval. I really appreciate your efforts, consultation and customer services. Thank you PROVISA for guiding me through the right path in my life. You helped me with my life changing decision. I will be forever grateful for your help and great assistance.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Saman Shrestha",
+    username: "The University of Australia",
+    body: "I feel very lucky to be a part of PROVISA. I got perfect counselling during my test preparation, document preparation, visa application and SOP writing which helped me in visa approval. I would recommend PROVISA as a perfect education partner to everyone out there trying for international study.",
+
+    img: "https://avatar.vercel.sh/jill",
+  },
+];
+
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
+
+const ReviewCard = ({ img, name, username, body }: { img: string; name: string; username: string; body: string }) => {
+  return (
+    <figure
+      className={cn(
+        "relative w-96 cursor-pointer overflow-hidden rounded-md border p-4",
+        // light styles
+        "border-primary-200/60 bg-gray-800/[.01] hover:bg-gray-800/[.05] hover:border-primary-200"
+        // dark styles
+      )}>
+      <div className="flex flex-row items-center gap-2">
+        {/* <img
+          className="rounded-full"
+          width="32"
+          height="32"
+          alt=""
+          src={img}
+        /> */}
+        <div className="flex flex-col w-full">
+          <figcaption className="text-sm font-medium text-800/95 ">{name}</figcaption>
+          <div className=" flex items-center justify-between">
+            <p className="text-xs font-medium ">{username}</p>
+            <Rating
+              style={{ maxWidth: 70 }}
+              readOnly
+              value={4.8}
+            />
+          </div>
+        </div>
+      </div>
+      <blockquote className="mt-2 text-sm tracking-wide leading-relaxed text-gray-600">{body}</blockquote>
+    </figure>
+  );
+};
+
+export default function TestimonialSection() {
+  return (
+    <section className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0">
+      <SectionHeader
+        title="Testimonials"
+        heading="Student's Testimonials"
+        description="Here are some of the testimonials from our students who have successfully completed their journey with us."
+      />
+      <div className="relative  flex h-full w-full flex-col   overflow-hidden  ">
+        <Marquee
+          pauseOnHover
+          className="[--duration:20s]">
+          {firstRow.map((review) => (
+            <ReviewCard
+              key={review.username}
+              {...review}
+            />
+          ))}
+        </Marquee>
+        <Marquee
+          reverse
+          pauseOnHover
+          className="[--duration:20s]">
+          {secondRow.map((review) => (
+            <ReviewCard
+              key={review.username}
+              {...review}
+            />
+          ))}
+        </Marquee>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white "></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white "></div>
+      </div>
+    </section>
+  );
+}
