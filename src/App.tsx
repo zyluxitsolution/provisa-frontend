@@ -1,40 +1,90 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Universities from "./pages/universities";
-import { createClient } from "@supabase/supabase-js";
 import Footer from "./components/website/footer";
 import Navbar from "./components/website/navbar";
-import TopNavbar from "./components/website/top-navbar";
 import FAQ from "./pages/faq";
 import Team from "./pages/team";
+import Contact from "./pages/contact";
+import About from "./pages/about";
+import Blogs from "./pages/blogs";
+import Appointment from "./pages/appointment";
+import Home from "./pages/home";
+import StudyAbroad from "./pages/study-abroad";
+import SingleStudyAbroad from "./pages/single-study-abroad";
+import SingleTestPreparation from "./pages/single-test-preparation";
+import SingleService from "./pages/single-service";
+import SingleBlog from "./pages/single-blog";
 
 export default function App() {
-  const supabase = createClient("https://bwlxylhhnhcpevyeseyr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3bHh5bGhobmhjcGV2eWVzZXlyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODMwMzQ1MCwiZXhwIjoyMDMzODc5NDUwfQ.yo-7kqJ4UkDr9NkVD2uJyl0i0G_eYSZKSyaQUWhcYyU");
-
   return (
     <Router>
-      <TopNavbar />
-      {/* <Navbar/> */}
-      <Routes>
-        <Route
-          path="/"
-          element={<p>Hello</p>}
-        />
-        <Route
-          path="/universities"
-          element={<Universities />}
-        />
+      <div className=" fixed w-full  z-50 ">
+        <Navbar />
+      </div>
+      <div className=" pt-24 md:pt-36">
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route
+            path="/universities"
+            element={<Universities />}
+          />
+          <Route
+            path="/faq"
+            element={<FAQ />}
+          />
+          <Route
+            path="/team"
+            element={<Team />}
+          />
+          <Route
+            path="/contact"
+            element={<Contact />}
+          />
 
-        <Route
-          path="/faq"
-          element={<FAQ />}
-        />
+          <Route
+            path="/about"
+            element={<About />}
+          />
 
+          <Route
+            path="/blogs"
+            element={<Blogs />}
+          />
 
-<Route
-          path="/team"
-          element={<Team />}
-        />
-      </Routes>
+          <Route
+            path="/appointment"
+            element={<Appointment />}
+          />
+
+          <Route
+            path="/study-abroad"
+            element={<StudyAbroad />}
+          />
+
+          <Route
+            path="/study-abroad/:slug"
+            element={<SingleStudyAbroad />}
+          />
+
+          <Route
+            path="/test-preparations/:slug"
+            element={<SingleTestPreparation />}
+          />
+
+          <Route
+            path="/services/:slug"
+            element={<SingleService />}
+          />
+
+          <Route
+            path="/blogs/:slug"
+            element={<SingleBlog />}
+          />
+        </Routes>
+      </div>
       <Footer />
     </Router>
   );

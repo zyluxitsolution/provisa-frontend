@@ -47,19 +47,13 @@ export default function Footer() {
             <span>Designed and developed by</span>
             <Link
               target="_blank"
-              href={"https://www.zyluxitsolution.com/"}
+              to={"https://www.aaa.com/"}
               className=" text-primary-400 tracking-wider">
-              zyluxitsolution
+              aaaaa
             </Link>
           </div> */}
         </div>
-        <style jsx>{`
-          .svg-icon path,
-          .svg-icon polygon,
-          .svg-icon rect {
-            fill: currentColor;
-          }
-        `}</style>
+      
       </div>
     </footer>
   );

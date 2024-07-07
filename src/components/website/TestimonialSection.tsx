@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import Marquee from "./magicui/marquee";
 import SectionHeader from "./section-header";
 import { Rating } from "@smastrom/react-rating";

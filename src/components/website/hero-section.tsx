@@ -1,7 +1,7 @@
-import React from "react";
 import { Button } from "../ui/button";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import Link from "next/link";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import { Link } from "react-router-dom";
+
 
 export default function HeroSection() {
   return (
@@ -17,7 +17,7 @@ export default function HeroSection() {
               <h3 className=" text-3xl font-semibold sm:text-7xl text-white">{banner.title}</h3>
               <p className=" max-w-2xl mx-auto text-white/70 font-medium">{banner.description}</p>
              <div>
-              <Link href={"/contact"}>
+              <Link to={"/contact"}>
               <Button>Visit us for counselling</Button>
               </Link>
              </div>

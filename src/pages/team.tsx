@@ -1,9 +1,8 @@
-import { createClient } from "@supabase/supabase-js";
 import React, { useEffect, useState } from "react";
 import SectionHeader from "../components/website/section-header";
+import { supabase } from "../supabaseclient";
 
 export default function Team() {
-    const supabase = createClient("https://bwlxylhhnhcpevyeseyr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3bHh5bGhobmhjcGV2eWVzZXlyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODMwMzQ1MCwiZXhwIjoyMDMzODc5NDUwfQ.yo-7kqJ4UkDr9NkVD2uJyl0i0G_eYSZKSyaQUWhcYyU");
   const [teams, setTeams] = useState<any[]>([]);
   const [isFetching, setIsFetching] = useState(false);
   useEffect(() => {

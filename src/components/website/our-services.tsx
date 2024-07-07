@@ -1,12 +1,10 @@
-"use client";
-import React from "react";
+;
 import shipping from "../../public/services/shipping.png";
 import happy from "../../public/services/happy.png";
 import online from "../../public/services/obline.png";
 import promotion from "../../public/services/promotion.png";
 import support from "../../public/services/support.png";
 import save from "../../public/services/save.png";
-import Image from "next/image";
 
 export default function OurServices() {
   return (
@@ -15,7 +13,7 @@ export default function OurServices() {
         <div
           key={index}
           className="border border-neutral-300  rounded-sm p-2 text-neutral-700 space-y-1 cursor-pointer hover:-translate-y-1 duration-300  ">
-          <Image
+          <img
             src={item.image}
             alt="img"
             className="mx-auto mb-2"

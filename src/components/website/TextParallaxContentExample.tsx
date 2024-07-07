@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export const TextParallaxContentExample = () => {
   return (
@@ -119,7 +119,7 @@ const ExampleContent = () => (
         are proud of our students who have been successful in their careers as a result of our counseling and guidance, in addition to our high visa success rate. As a result, we may be Nepals best education consultancy.
       </p>
 
-     <Link href={"/about"}>
+     <Link to={"/about"}>
      <Button>
         Learn more{" "}
         <ChevronRight

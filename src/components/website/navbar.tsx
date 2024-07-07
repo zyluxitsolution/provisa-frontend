@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { supabase } from "@/utils/something/supabase/supabaseClient";
-import Link from "next/link";
-import Image from "next/image";
+
 import { IconTestPreparation } from "../svg-icons/IconTestPreparation";
 import { IconGlobe } from "../svg-icons/IconGlobe";
-import logo from "../../public/logo/logo.png";
+import logo from "../../../public/logo/logo.png";
 import { Calendar, HammerIcon, Menu, X } from "lucide-react";
 import { IconService } from "../svg-icons/IconService";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
+import { createClient } from "@supabase/supabase-js";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
+  const supabase = createClient("https://bwlxylhhnhcpevyeseyr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3bHh5bGhobmhjcGV2eWVzZXlyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODMwMzQ1MCwiZXhwIjoyMDMzODc5NDUwfQ.yo-7kqJ4UkDr9NkVD2uJyl0i0G_eYSZKSyaQUWhcYyU");
+
   const [state, setState] = useState(false);
   const [drapdownState, setDrapdownState] = useState({ isActive: false, idx: null });
 
@@ -119,7 +121,8 @@ export default function Navbar() {
     };
   }, []);
 
-  const pathname = usePathname();
+  // const pathname = usePathname();
+  const pathname=useLocation().pathname;
   console.log(pathname);
 
   return (
@@ -127,8 +130,8 @@ export default function Navbar() {
       <nav className={`relative z-20 bg-secondary-950 w-full md:static md:text-sm md:border-none ${state ? "shadow-lg rounded-b-xl md:shadow-none" : ""}`}>
         <div className="items-center gap-x-14 px-4 md:px-0 max-w-screen-xl mx-auto md:flex  ">
           <div className="flex items-center justify-between py-3 md:py-5 md:block ">
-            <Link href="/">
-              <Image
+            <Link to="/">
+              <img
                 src={logo}
                 width={180}
                 height={180}
@@ -184,7 +187,7 @@ export default function Navbar() {
                     ) : (
                       <Link
                       
-                        href={item.path}
+                        to={item.path}
                         className={`${pathname === item.path ? "text-primary-600" : "text-secondary-50"} hover:text-primary-600 duration-300`}>
                         {item.title}
                       </Link>
@@ -200,7 +203,7 @@ export default function Navbar() {
                                 className="group hover:bg-secondary-900/40 p-4 transition-all ease-in-out duration-300 rounded-md ">
                                 <Link
                                 
-                                  href={`${item.title === "Abroad Study" ? "/study-abroad" : item.title === "Test Preparation" ? "/test-preparations" : item.title === "Services" ? "/services" : ""}/${el.slug}`}
+                                  to={`${item.title === "Abroad Study" ? "/study-abroad" : item.title === "Test Preparation" ? "/test-preparations" : item.title === "Services" ? "/services" : ""}/${el.slug}`}
                                   className="flex gap-3">
                                   <div  className=" hidden md:block">
                                     <div className=" bg-secondary-900 h-10 w-10 p-2 flex items-center justify-center rounded-3xl">
@@ -225,7 +228,7 @@ export default function Navbar() {
                 );
               })}
               <div className="flex-1 items-center justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
-                <Link href={"/appointment"}>
+                <Link to={"/appointment"}>
                   <Button>
                     {" "}
                     <Calendar

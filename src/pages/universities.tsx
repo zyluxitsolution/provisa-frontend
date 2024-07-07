@@ -1,15 +1,10 @@
-"use client";
 import React, { useState } from "react";
-
 import "@smastrom/react-rating/style.css";
-
-
 import { MapPin } from "lucide-react";
-// import { supabase } from "@/utils/something/supabase/supabaseClient";
 import SectionHeader from "../components/website/section-header";
 import { cn } from "../lib/utils";
 import Marquee from "../components/website/magicui/marquee";
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "../supabaseclient";
 
 const ReviewCard = ({ name, location, thumbnail }: any) => {
   return (
@@ -46,8 +41,7 @@ const ReviewCard = ({ name, location, thumbnail }: any) => {
 };
 
 export default function Universities() {
-  const supabase = createClient("https://bwlxylhhnhcpevyeseyr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3bHh5bGhobmhjcGV2eWVzZXlyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODMwMzQ1MCwiZXhwIjoyMDMzODc5NDUwfQ.yo-7kqJ4UkDr9NkVD2uJyl0i0G_eYSZKSyaQUWhcYyU");
-  const [universities, setUniverties] = React.useState([]);
+  const [universities, setUniverties] = React.useState<any>([]);
   const [isFetching, setIsFetching] = useState(false);
   React.useEffect(() => {
     const fetch = async () => {
@@ -83,7 +77,7 @@ export default function Universities() {
             <Marquee
               pauseOnHover
               className="[--duration:20s]">
-              {firstRow.map((review) => (
+              {firstRow.map((review:any) => (
                 <ReviewCard
                   key={review.username}
                   {...review}
@@ -94,7 +88,7 @@ export default function Universities() {
               reverse
               pauseOnHover
               className="[--duration:20s]">
-              {secondRow.map((review) => (
+              {secondRow.map((review:any) => (
                 <ReviewCard
                   key={review.username}
                   {...review}
@@ -105,7 +99,7 @@ export default function Universities() {
             <Marquee
               pauseOnHover
               className="[--duration:20s]">
-              {thirdRow.map((review) => (
+              {thirdRow.map((review:any) => (
                 <ReviewCard
                   key={review.username}
                   {...review}
@@ -117,7 +111,7 @@ export default function Universities() {
               reverse
               pauseOnHover
               className="[--duration:20s]">
-              {fourthRow.map((review) => (
+              {fourthRow.map((review:any) => (
                 <ReviewCard
                   key={review.username}
                   {...review}

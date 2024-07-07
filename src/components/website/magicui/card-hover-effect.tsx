@@ -1,9 +1,8 @@
-"use client"
-import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
+
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { cn } from "../../../lib/utils";
 
 export const HoverEffect = ({
   items,
@@ -24,7 +23,7 @@ export const HoverEffect = ({
     <div className={cn("grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ", className)}>
       {items.map((item, idx) => (
         <Link
-          href={`/services/${item.slug}`}
+          to={`/services/${item.slug}`}
           key={idx}
           className="relative group  block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
@@ -49,15 +48,19 @@ export const HoverEffect = ({
           <Card>
             <div className="space-y-3">
               <div className="flex-none w-12 h-12 bg-primary-600 text-white rounded-lg flex items-center justify-center p-1">
-
-<Image src={item.thumbnail || ""} alt={item.heading} width={48} height={48} className="rounded-md " />
-
+                <img
+                  src={item.thumbnail || ""}
+                  alt={item.heading}
+                  width={48}
+                  height={48}
+                  className="rounded-md "
+                />
               </div>
               <h4 className="text-lg text-gray-800 font-semibold">{item.heading}</h4>
 
               <p>{item.shortDesc}</p>
-              <a
-                href={"/"}
+              <Link
+                to={"/"}
                 className="text-sm text-primary-600 duration-150 hover:text-primary-500 font-medium inline-flex items-center gap-x-1">
                 Learn more
                 <svg
@@ -71,7 +74,7 @@ export const HoverEffect = ({
                     clipRule="evenodd"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </Card>
         </Link>

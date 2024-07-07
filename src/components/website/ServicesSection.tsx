@@ -1,10 +1,11 @@
-"use client";
-import { supabase } from "@/utils/something/supabase/supabaseClient";
 import React, { useState } from "react";
 import { HoverEffect } from "./magicui/card-hover-effect";
 import SectionHeader from "./section-header";
+import { createClient } from "@supabase/supabase-js";
 
 export default function ServicesSection() {
+  const supabase = createClient("https://bwlxylhhnhcpevyeseyr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3bHh5bGhobmhjcGV2eWVzZXlyIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxODMwMzQ1MCwiZXhwIjoyMDMzODc5NDUwfQ.yo-7kqJ4UkDr9NkVD2uJyl0i0G_eYSZKSyaQUWhcYyU");
+
   const [services, setServices] = React.useState<any[]>([]);
   const [isFetching, setIsFetching] = useState(false);
   React.useEffect(() => {
