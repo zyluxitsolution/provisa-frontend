@@ -16,38 +16,38 @@ import SingleService from "./pages/single-service";
 import SingleBlog from "./pages/single-blog";
 import { useEffect } from "react";
 
-declare global {
-  interface Window {
-    google: {
-      translate: {
-        TranslateElement: new (options: object, element: string) => void;
-      };
-    };
-    googleTranslateElementInit: () => void;
-  }
-}
+// declare global {
+//   interface Window {
+//     google: {
+//       translate: {
+//         TranslateElement: new (options: object, element: string) => void;
+//       };
+//     };
+//     googleTranslateElementInit: () => void;
+//   }
+// }
 
 export default function App() {
-  const googleTranslateElementInit = () => {
-    new window.google.translate.TranslateElement(
-      {
-        // pageLanguage: "en",
-        // autoDisplay: false,
-        pageLanguage: "en",  // Set the default page language to English
-        includedLanguages: "en,es,fr,de,zh-CN", // Optional: Specify the languages you want to include
-        // layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false  // Disable automatic translation dis
-      },
-      "google_translate_element"
-    );
-  };
+  // const googleTranslateElementInit = () => {
+  //   new window.google.translate.TranslateElement(
+  //     {
+  //       // pageLanguage: "en",
+  //       // autoDisplay: false,
+  //       pageLanguage: "en",  // Set the default page language to English
+  //       includedLanguages: "en,es,fr,de,zh-CN", // Optional: Specify the languages you want to include
+  //       // layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+  //       autoDisplay: false  // Disable automatic translation dis
+  //     },
+  //     "google_translate_element"
+  //   );
+  // };
 
-  useEffect(() => {
-    var addScript = document.createElement("script");
-    addScript.setAttribute("src", "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
-    document.body.appendChild(addScript);
-    window.googleTranslateElementInit = googleTranslateElementInit;
-  }, []);
+  // useEffect(() => {
+  //   var addScript = document.createElement("script");
+  //   addScript.setAttribute("src", "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+  //   document.body.appendChild(addScript);
+  //   window.googleTranslateElementInit = googleTranslateElementInit;
+  // }, []);
 
   return (
     <Router>
