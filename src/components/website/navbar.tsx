@@ -127,7 +127,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav id="google_translate_element" className={`relative z-20 bg-secondary-950 w-full md:static md:text-sm md:border-none ${state ? "shadow-lg rounded-b-xl md:shadow-none" : ""}`}>
+      <nav className={`relative z-20 bg-secondary-950 w-full md:static md:text-sm md:border-none ${state ? "shadow-lg rounded-b-xl md:shadow-none" : ""}`}>
         <div className="items-center gap-x-14 px-4 md:px-0 max-w-screen-xl mx-auto md:flex  ">
           <div className="flex items-center justify-between py-3 md:py-5 md:block ">
             <Link to="/">
