@@ -14,11 +14,44 @@ import SingleStudyAbroad from "./pages/single-study-abroad";
 import SingleTestPreparation from "./pages/single-test-preparation";
 import SingleService from "./pages/single-service";
 import SingleBlog from "./pages/single-blog";
+import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    google: {
+      translate: {
+        TranslateElement: new (options: object, element: string) => void;
+      };
+    };
+    googleTranslateElementInit: () => void;
+  }
+}
 
 export default function App() {
+
+  
+  
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        autoDisplay: false,
+      },
+      "google_translate_element"
+    );
+  };
+  
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute("src", "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
+
   return (
     <Router>
       <div className=" fixed w-full  z-50 ">
+      <div ></div>
         <Navbar />
       </div>
       <div className=" pt-24 md:pt-36">
