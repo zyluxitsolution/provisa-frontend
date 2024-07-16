@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SectionHeader from "../components/website/section-header";
 import img1 from "../../public/studyAbroad/study1.webp";
 import img2 from "../../public/studyAbroad/study2.webp";
 import img3 from "../../public/studyAbroad/study3.webp";
 import img4 from "../../public/studyAbroad/study4.webp";
-import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const images = [
+interface ImageCardProps {
+  title: string;
+  description: string;
+  imageSrc: string;
+  links: string;
+}
+
+const images: ImageCardProps[] = [
   {
     title: "STUDY IN AUSTRALIA",
     description:
@@ -44,7 +50,12 @@ const images = [
   },
 ];
 
-const LargeImageCard = ({ title, description, imageSrc, links }) => {
+const LargeImageCard: React.FC<ImageCardProps> = ({
+  title,
+  description,
+  imageSrc,
+  links,
+}) => {
   return (
     <div className="relative group overflow-hidden rounded-lg shadow-lg h-[30rem]">
       <div className="relative w-full h-full">
@@ -75,7 +86,12 @@ const LargeImageCard = ({ title, description, imageSrc, links }) => {
   );
 };
 
-const SmallImageCard = ({ title, description, imageSrc, links }) => {
+const SmallImageCard: React.FC<ImageCardProps> = ({
+  title,
+  description,
+  imageSrc,
+  links,
+}) => {
   return (
     <div className="relative group overflow-hidden rounded-lg shadow-lg h-[15rem]">
       <div className="relative w-full h-full">
@@ -106,7 +122,7 @@ const SmallImageCard = ({ title, description, imageSrc, links }) => {
   );
 };
 
-const ImageGrid = () => {
+const ImageGrid: React.FC = () => {
   const largeImage = images[0];
   const smallImages = images.slice(1, 5);
 
@@ -135,24 +151,22 @@ const ImageGrid = () => {
   );
 };
 
-const AbroadStudy = () => {
+const AbroadStudy: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 }); // Initialize AOS with options
   }, []);
   return (
-    <>
-      <div
-        className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
-        data-aos="fade-left"
-      >
-        <SectionHeader
-          title="Abroad study"
-          heading=" Abroad Study"
-          description=" Discover opportunities to study abroad in top educational destinations worldwide. We provide comprehensive guidance and support to help you pursue your academic goals internationally"
-        />
-        <ImageGrid />
-      </div>
-    </>
+    <div
+      className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
+      data-aos="zoom-in"
+    >
+      <SectionHeader
+        title="Abroad study"
+        heading=" Abroad Study"
+        description=" Discover opportunities to study abroad in top educational destinations worldwide. We provide comprehensive guidance and support to help you pursue your academic goals internationally"
+      />
+      <ImageGrid />
+    </div>
   );
 };
 

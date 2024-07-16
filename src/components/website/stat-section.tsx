@@ -30,7 +30,7 @@ export default function StatSection() {
   return (
     <section
       className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
-      data-aos="fade-right"
+      data-aos="fade-down"
     >
       <div className="">
         <SectionHeader
