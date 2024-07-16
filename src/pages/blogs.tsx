@@ -1,17 +1,20 @@
-
 import { Calendar } from "lucide-react";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import SectionHeader from "../components/website/section-header";
 import { Link } from "react-router-dom";
 import { supabase } from "../supabaseclient";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function Blogs() {
   const [blogs, setBlogs] = useState<any[]>([]);
   const [isFetching, setIsFetching] = useState(false);
   useEffect(() => {
     const fetch = async () => {
-      let { data, error } = await supabase.from("Blog").select("*").order("created_at", { ascending: false });
+      let { data, error } = await supabase
+        .from("Blog")
+        .select("*")
+        .order("created_at", { ascending: false });
       if (error) {
         console.log(error.message);
         setIsFetching(false);
@@ -24,9 +27,14 @@ export default function Blogs() {
     };
     fetch();
   }, []);
-
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with options
+  }, []);
   return (
-    <section className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0">
+    <section
+      className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
+      data-aos="zoom-out"
+    >
       <SectionHeader
         title="Blogs"
         heading=" Our Latest Blogs"
@@ -38,10 +46,9 @@ export default function Blogs() {
           {blogs?.map((items, key) => (
             <article
               className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm hover:border-primary-200"
-              key={key}>
-              <Link
-                to={"/blogs/" + items.slug}
-                className="  ">
+              key={key}
+            >
+              <Link to={"/blogs/" + items.slug} className="  ">
                 <img
                   src={items.thumbnail}
                   loading="lazy"
@@ -53,12 +60,16 @@ export default function Blogs() {
                 <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
                   <div className=" flex items-center gap-1 text-gray-400">
                     <Calendar size={16} />
-                    <span className="block  text-sm">{moment(items.created_at).format("MMM Do YY")}</span>
+                    <span className="block  text-sm">
+                      {moment(items.created_at).format("MMM Do YY")}
+                    </span>
                   </div>
                 </div>
                 <div className="pt-3 ml-4 mr-2 mb-3">
                   <h3 className="text-xl text-gray-800/90">{items.heading}</h3>
-                  <p className="text-gray-400 text-sm mt-1 tracking-wide leading-relaxed">{items.shortDesc.slice(0, 200)}</p>
+                  <p className="text-gray-400 text-sm mt-1 tracking-wide leading-relaxed">
+                    {items.shortDesc.slice(0, 200)}
+                  </p>
                 </div>
               </Link>
             </article>

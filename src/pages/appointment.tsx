@@ -5,7 +5,9 @@ import { toast } from "sonner";
 import SectionHeader from "../components/website/section-header";
 import { Button } from "../components/ui/button";
 import { supabase } from "../supabaseclient";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 export default function Appointment() {
   const {
     register,
@@ -28,7 +30,10 @@ export default function Appointment() {
       .select();
 
     if (error) {
-      toast.error(error.details || "An error occurred during appointment book. Please try again.");
+      toast.error(
+        error.details ||
+          "An error occurred during appointment book. Please try again."
+      );
       console.error("Failed to send message:", error.message);
       setIsCreating(false);
       return;
@@ -42,8 +47,15 @@ export default function Appointment() {
     }
   };
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with options
+  }, []);
+
   return (
-    <div className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0">
+    <div
+      className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
+      data-aos="zoom-out"
+    >
       <section>
         <SectionHeader
           title="Appointment Form"
@@ -51,9 +63,7 @@ export default function Appointment() {
           description="Please fill out the form below to book an appointment with us. We will get back to you as soon as possible"
         />
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {/* Personal Details */}
           <div className="grid grid-cols-1 md:grid-cols-2  gap-8">
             <div>
@@ -64,7 +74,11 @@ export default function Appointment() {
                 className="globalinput"
                 {...register("fullName", { required: true })}
               />
-              {errors.fullName && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.fullName && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
@@ -75,7 +89,11 @@ export default function Appointment() {
                 className="globalinput"
                 {...register("email", { required: true })}
               />
-              {errors.email && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.email && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
@@ -84,9 +102,17 @@ export default function Appointment() {
                 placeholder="7494730303"
                 type="number"
                 className="globalinput"
-                {...register("phone", { required: true, minLength: 10, maxLength: 10 })}
+                {...register("phone", {
+                  required: true,
+                  minLength: 10,
+                  maxLength: 10,
+                })}
               />
-              {errors.phone && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.phone && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
@@ -97,15 +123,22 @@ export default function Appointment() {
                 className="globalinput"
                 {...register("address", { required: true })}
               />
-              {errors.address && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.address && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             {/* Education Details */}
             <div>
-              <label className="font-medium text-gray-700">Select Your Latest Educational Qualification</label>
+              <label className="font-medium text-gray-700">
+                Select Your Latest Educational Qualification
+              </label>
               <select
                 className="globalinput"
-                {...register("latestEducation", { required: true })}>
+                {...register("latestEducation", { required: true })}
+              >
                 <option value="">---Select Education Level---</option>
                 <option value="SLC">SLC</option>
                 <option value="Intermediate">Intermediate</option>
@@ -113,14 +146,21 @@ export default function Appointment() {
                 <option value="Master">Master</option>
                 <option value="PhD">PhD</option>
               </select>
-              {errors.latestEducation && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.latestEducation && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
-              <label className="font-medium text-gray-700">Select Subject</label>
+              <label className="font-medium text-gray-700">
+                Select Subject
+              </label>
               <select
                 className="globalinput"
-                {...register("subject", { required: true })}>
+                {...register("subject", { required: true })}
+              >
                 <option value="">---Select Subject---</option>
                 <option value="Science">Science</option>
                 <option value="Management">Management</option>
@@ -128,35 +168,54 @@ export default function Appointment() {
                 <option value="Engineering">Engineering</option>
                 <option value="Medical">Medical</option>
               </select>
-              {errors.subject && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.subject && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
-              <label className="font-medium text-gray-700">Select Your Passed Year</label>
+              <label className="font-medium text-gray-700">
+                Select Your Passed Year
+              </label>
               <input
                 type="date"
                 className="globalinput"
                 {...register("passedYear", { required: true })}
               />
-              {errors.passedYear && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.passedYear && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
-              <label className="font-medium text-gray-700">Enter Your Percentage or GPA</label>
+              <label className="font-medium text-gray-700">
+                Enter Your Percentage or GPA
+              </label>
               <input
                 type="number"
                 className="globalinput"
                 {...register("gpa", { required: true })}
               />
-              {errors.gpa && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.gpa && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             {/* Abroad Study */}
             <div>
-              <label className="font-medium text-gray-700">Where Do You Want To Go?</label>
+              <label className="font-medium text-gray-700">
+                Where Do You Want To Go?
+              </label>
               <select
                 className="globalinput"
-                {...register("destinationCountry", { required: true })}>
+                {...register("destinationCountry", { required: true })}
+              >
                 <option value="">---Select Country---</option>
                 <option value="Australia">Australia</option>
                 <option value="Canada">Canada</option>
@@ -166,14 +225,21 @@ export default function Appointment() {
                 <option value="Europe">Europe</option>
                 <option value="Japan">Japan</option>
               </select>
-              {errors.destinationCountry && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.destinationCountry && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
-              <label className="font-medium text-gray-700">Which Test Preparation Do You Want To Enroll?</label>
+              <label className="font-medium text-gray-700">
+                Which Test Preparation Do You Want To Enroll?
+              </label>
               <select
                 className="globalinput"
-                {...register("testPreparation", { required: true })}>
+                {...register("testPreparation", { required: true })}
+              >
                 <option value="">---Select Courses---</option>
                 <option value="IELTS">IELTS</option>
                 <option value="TOEFL">TOEFL</option>
@@ -182,29 +248,45 @@ export default function Appointment() {
                 <option value="SAT">SAT</option>
                 <option value="PTE">PTE</option>
               </select>
-              {errors.testPreparation && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.testPreparation && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
-              <label className="font-medium text-gray-700">Which Course Do You Want To Enroll?</label>
+              <label className="font-medium text-gray-700">
+                Which Course Do You Want To Enroll?
+              </label>
               <select
                 className="globalinput"
-                {...register("course", { required: true })}>
+                {...register("course", { required: true })}
+              >
                 <option value="">---Select Courses---</option>
                 <option value="Diploma">Diploma</option>
                 <option value="Bachelor">Bachelor</option>
                 <option value="Master">Master</option>
                 <option value="PhD">PhD</option>
-                <option value="Post Graduate Diploma">Post Graduate Diploma</option>
+                <option value="Post Graduate Diploma">
+                  Post Graduate Diploma
+                </option>
                 <option value="Certificate">Certificate</option>
                 <option value="Vocational">Vocational</option>
                 <option value="Others">Others</option>
               </select>
-              {errors.course && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.course && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
-              <label className="font-medium text-gray-700">Have you been to “Professional Visa and Education Services” before?</label>
+              <label className="font-medium text-gray-700">
+                Have you been to “Professional Visa and Education Services”
+                before?
+              </label>
               <div className="flex items-center space-x-4">
                 <label>
                   <input
@@ -223,18 +305,28 @@ export default function Appointment() {
                   No
                 </label>
               </div>
-              {errors.visitedBefore && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.visitedBefore && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             {/* Booking */}
             <div>
-              <label className="font-medium text-gray-700">Select Appointment Date</label>
+              <label className="font-medium text-gray-700">
+                Select Appointment Date
+              </label>
               <input
                 type="date"
                 className="globalinput"
                 {...register("appointmentDate", { required: true })}
               />
-              {errors.appointmentDate && <span className="text-[12px] text-primary-600">This field is required</span>}
+              {errors.appointmentDate && (
+                <span className="text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             {/* Existing fields */}
@@ -247,15 +339,16 @@ export default function Appointment() {
               className="globalinput h-40"
               {...register("message", { required: true })}
             />
-            {errors.message && <span className="text-[12px] text-primary-600">This field is required</span>}
+            {errors.message && (
+              <span className="text-[12px] text-primary-600">
+                This field is required
+              </span>
+            )}
           </div>
 
           <Button className="float-end flex items-center gap-1">
             {isCreating ? (
-              <Loader
-                size={16}
-                className="animate-spin"
-              />
+              <Loader size={16} className="animate-spin" />
             ) : (
               <Calendar size={16} />
             )}{" "}
