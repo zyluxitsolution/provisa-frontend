@@ -140,9 +140,8 @@ export default function Navbar() {
     };
   }, []);
 
-  // const pathname = usePathname();
+  // to open the each page from the top
   const { pathname } = useLocation();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -163,7 +162,7 @@ export default function Navbar() {
             <div className="md:hidden">
               <button
                 type="button"
-                className="text-gray-900"
+                className="text-[#333]"
                 onClick={() => setState(!state)}
               >
                 {state ? <X /> : <Menu />}

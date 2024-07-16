@@ -58,7 +58,10 @@ export default function SingleTestPreparation() {
           {blog.heading}
         </p>
 
-        <p className=" text-gray-600 tracking-wide leading-loose text-justify">
+        <p
+          className=" text-gray-600 tracking-wide leading-loose text-justify"
+          data-aos="fade-left"
+        >
           {parse(blog.longDesc || "")}
         </p>
       </div>

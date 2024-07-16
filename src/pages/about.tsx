@@ -35,7 +35,10 @@ export default function About() {
       <div className="mt-12 divide-y sm:mt-20">
         {faqsList.map((list: any, idx) => (
           <div key={idx} className="py-5 gap-x-12 first:pt-0 sm:flex">
-            <div className="max-w-sm pt-8 pb-6 sm:pt-0 lg:flex-grow">
+            <div
+              className="max-w-sm pt-8 pb-6 sm:pt-0 lg:flex-grow"
+              data-aos="fade-right"
+            >
               <h4 className="text-secondary-600 font-semibold text-xl flex items-center gap-2">
                 {list.icon}
                 <span className=" text-primary-600"> {list.label}</span>
@@ -51,6 +54,7 @@ export default function About() {
                       height={300}
                       width={300}
                       className=" mx-auto rounded-md"
+                      data-aos="zoom-in"
                     />
                   )}
 
@@ -58,11 +62,22 @@ export default function About() {
                     {item.q}
                   </summary>
 
-                  <p className="mt-3 text-gray-600 leading-relaxed">{item.a}</p>
-                  <p className="mt-3 text-gray-600 leading-relaxed">
+                  <p
+                    className="mt-3 text-gray-600 leading-relaxed"
+                    data-aos="zoom-out"
+                  >
+                    {item.a}
+                  </p>
+                  <p
+                    className="mt-3 text-gray-600 leading-relaxed"
+                    data-aos="zoom-out"
+                  >
                     {item.a2}
                   </p>
-                  <p className="mt-3 text-gray-600 leading-relaxed">
+                  <p
+                    className="mt-3 text-gray-600 leading-relaxed"
+                    data-aos="zoom-out"
+                  >
                     {item.a3}
                   </p>
                 </li>

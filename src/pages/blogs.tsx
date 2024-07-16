@@ -47,6 +47,7 @@ export default function Blogs() {
             <article
               className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm hover:border-primary-200"
               key={key}
+              data-aos="zoom-in"
             >
               <Link to={"/blogs/" + items.slug} className="  ">
                 <img

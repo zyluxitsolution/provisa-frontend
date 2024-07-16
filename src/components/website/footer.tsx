@@ -10,7 +10,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-secondary-950 py-20 mt-20">
+    <footer className="bg-secondary-950 py-20 mt-20 w-full">
       <div className="max-w-screen-xl mx-auto px-4 md:px-0">
         <div
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 text-secondary-100/90"

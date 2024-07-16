@@ -20,14 +20,20 @@ export const HoverEffect = ({
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ", className)}>
+    <div
+      className={cn(
+        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  ",
+        className
+      )}
+    >
       {items.map((item, idx) => (
         <Link
           to={`/services/${item.slug}`}
           key={idx}
           className="relative group  block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}>
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
@@ -56,18 +62,22 @@ export const HoverEffect = ({
                   className="rounded-md "
                 />
               </div>
-              <h4 className="text-lg text-gray-800 font-semibold">{item.heading}</h4>
+              <h4 className="text-lg text-gray-800 font-semibold">
+                {item.heading}
+              </h4>
 
               <p>{item.shortDesc}</p>
               <Link
                 to={"/"}
-                className="text-sm text-primary-600 duration-150 hover:text-primary-500 font-medium inline-flex items-center gap-x-1">
+                className="text-sm text-primary-600 duration-150 hover:text-primary-500 font-medium inline-flex items-center gap-x-1"
+              >
                 Learn more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="w-5 h-5">
+                  className="w-5 h-5"
+                >
                   <path
                     fillRule="evenodd"
                     d="M5 10a.75.75 0 01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5 3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0 11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z"
@@ -83,18 +93,54 @@ export const HoverEffect = ({
   );
 };
 
-export const Card = ({ className, children }: { className?: string; children: React.ReactNode }) => {
+export const Card = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
   return (
-    <div className={cn("rounded-2xl h-full w-full p-4 overflow-hidden bg-gray-100 border border-transparent group-hover:border-primary-600 relative z-20", className)}>
+    <div
+      className={cn(
+        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gray-100 border border-transparent group-hover:border-primary-600 relative z-20",
+        className
+      )}
+    >
       <div className="relative z-50">
         <div className="p-4">{children}</div>
       </div>
     </div>
   );
 };
-export const CardTitle = ({ className, children }: { className?: string; children: React.ReactNode }) => {
-  return <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-4", className)}>{children}</h4>;
+export const CardTitle = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-4", className)}>
+      {children}
+    </h4>
+  );
 };
-export const CardDescription = ({ className, children }: { className?: string; children: React.ReactNode }) => {
-  return <p className={cn("mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm", className)}>{children}</p>;
+export const CardDescription = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <p
+      className={cn(
+        "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
+        className
+      )}
+    >
+      {children}
+    </p>
+  );
 };
