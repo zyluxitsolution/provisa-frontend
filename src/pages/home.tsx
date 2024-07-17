@@ -8,7 +8,7 @@ import AbroadStudy from "./abroadStudy";
 
 export default function Home() {
   return (
-    <div className=" space-y-20 -mt-14">
+    <div className=" space-y-20 -mt-14 overflow-hidden">
       <HeroSection />
       <StatSection />
       <ServicesSection />
