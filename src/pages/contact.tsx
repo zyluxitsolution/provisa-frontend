@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Loader, Send } from "lucide-react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import SectionHeader from "../components/website/section-header";
 import { Button } from "../components/ui/button";
 import { supabase } from "../supabaseclient";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function Contact() {
   const {
     register,
@@ -29,7 +30,10 @@ export default function Contact() {
       .select();
 
     if (error) {
-      toast.error(error.details || "An error occurred during message sent. Please try again.");
+      toast.error(
+        error.details ||
+          "An error occurred during message sent. Please try again."
+      );
       console.error("Failed to send message:", error.message);
       setIsCreating(false);
       return;
@@ -43,8 +47,14 @@ export default function Contact() {
     }
   };
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with options
+  }, []);
   return (
-    <div className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0">
+    <div
+      className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
+      data-aos="zoom-out"
+    >
       <section>
         <SectionHeader
           title="Contact Us"
@@ -55,10 +65,14 @@ export default function Contact() {
         <div className=" flex flex-wrap gap-x-12 gap-y-6 items-center lg:gap-x-24 ">
           {contactMethods.map((item, idx) => (
             <div key={idx}>
-              <h4 className="text-gray-800/90 text-lg font-medium">{item.title}</h4>
+              <h4 className="text-gray-800/90 text-lg font-medium">
+                {item.title}
+              </h4>
               <div className="mt-3 flex items-center gap-x-3">
                 <div className="flex-none text-primary-600">{item.icon}</div>
-                <p className="text-gray-600  tracking-wide leading-relaxed">{item.contact}</p>
+                <p className="text-gray-600  tracking-wide leading-relaxed">
+                  {item.contact}
+                </p>
               </div>
             </div>
           ))}
@@ -67,26 +81,28 @@ export default function Contact() {
         <div className=" flex flex-wrap gap-x-12 gap-y-6 items-center lg:gap-x-24 mt-12">
           {nepaljungContactMethods.map((item, idx) => (
             <div key={idx}>
-              <h4 className="text-gray-800/90 text-lg font-medium">{item.title}</h4>
+              <h4 className="text-gray-800/90 text-lg font-medium">
+                {item.title}
+              </h4>
               <div className="mt-3 flex items-center gap-x-3">
                 <div className="flex-none text-primary-600">{item.icon}</div>
-                <p className="text-gray-600  tracking-wide leading-relaxed">{item.contact}</p>
+                <p className="text-gray-600  tracking-wide leading-relaxed">
+                  {item.contact}
+                </p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section>
+      <section data-aos="fade-up">
         <SectionHeader
           title="Send us your doubts"
           heading="  Do you have any questions?"
           description="We’re here to help and answer any question you might have, We look forward to hearing from you! Please fill out the form, or us the contact information bellow ."
         />
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="space-y-5 ">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">
           <div className="flex flex-col items-center gap-y-5 gap-x-6 [&>*]:w-full sm:flex-row">
             <div>
               <label className="font-medium">Full Name</label>
@@ -96,7 +112,11 @@ export default function Contact() {
                 className="globalinput"
                 {...register("fullName", { required: true })}
               />
-              {errors.fullName && <span className=" text-[12px] text-primary-600">This field is required</span>}
+              {errors.fullName && (
+                <span className=" text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
@@ -107,7 +127,11 @@ export default function Contact() {
                 className="globalinput"
                 {...register("email", { required: true })}
               />
-              {errors.email && <span className=" text-[12px] text-primary-600">This field is required</span>}
+              {errors.email && (
+                <span className=" text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
           </div>
 
@@ -118,9 +142,17 @@ export default function Contact() {
                 placeholder="9864755749 "
                 type="number"
                 className="globalinput"
-                {...register("phone", { required: true, minLength: 10, maxLength: 10 })}
+                {...register("phone", {
+                  required: true,
+                  minLength: 10,
+                  maxLength: 10,
+                })}
               />
-              {errors.phone && <span className=" text-[12px] text-primary-600">This field is required</span>}
+              {errors.phone && (
+                <span className=" text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
 
             <div>
@@ -131,7 +163,11 @@ export default function Contact() {
                 className="globalinput"
                 {...register("address", { required: true })}
               />
-              {errors.address && <span className=" text-[12px] text-primary-600">This field is required</span>}
+              {errors.address && (
+                <span className=" text-[12px] text-primary-600">
+                  This field is required
+                </span>
+              )}
             </div>
           </div>
 
@@ -143,7 +179,11 @@ export default function Contact() {
               className="globalinput"
               {...register("subject", { required: true })}
             />
-            {errors.subject && <span className=" text-[12px] text-primary-600">This field is required</span>}
+            {errors.subject && (
+              <span className=" text-[12px] text-primary-600">
+                This field is required
+              </span>
+            )}
           </div>
 
           <div>
@@ -153,14 +193,15 @@ export default function Contact() {
               className="globalinput h-40"
               {...register("message", { required: true })}
             />
-            {errors.message && <span className=" text-[12px] text-primary-600">This field is required</span>}
+            {errors.message && (
+              <span className=" text-[12px] text-primary-600">
+                This field is required
+              </span>
+            )}
           </div>
           <Button className=" float-end flex items-center gap-1">
             {isCreating ? (
-              <Loader
-                size={16}
-                className=" animate-spin"
-              />
+              <Loader size={16} className=" animate-spin" />
             ) : (
               <Send size={16} />
             )}{" "}
@@ -169,7 +210,7 @@ export default function Contact() {
         </form>
       </section>
 
-      <section>
+      <section data-aos="zoom-in">
         <SectionHeader
           title="Visit us"
           heading="You can find us here"
@@ -197,7 +238,8 @@ const contactMethods = [
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6">
+        className="w-6 h-6"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -221,7 +263,8 @@ const contactMethods = [
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6">
+        className="w-6 h-6"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -240,7 +283,8 @@ const contactMethods = [
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6">
+        className="w-6 h-6"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -253,9 +297,6 @@ const contactMethods = [
   },
 ];
 
-
-
-
 const nepaljungContactMethods = [
   {
     icon: (
@@ -265,7 +306,8 @@ const nepaljungContactMethods = [
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6">
+        className="w-6 h-6"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -289,7 +331,8 @@ const nepaljungContactMethods = [
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6">
+        className="w-6 h-6"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -308,7 +351,8 @@ const nepaljungContactMethods = [
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-6 h-6">
+        className="w-6 h-6"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"

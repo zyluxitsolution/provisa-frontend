@@ -1,17 +1,19 @@
-
-
 import React from "react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import SectionHeader from "../components/website/section-header";
 import { IconFAQ } from "../components/svg-icons/IconFAQ";
 import { supabase } from "../supabaseclient";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function FAQ() {
   const [faqs, setFaqs] = React.useState<any[]>([]);
   const [isFetching, setIsFetching] = useState(false);
   React.useEffect(() => {
     const fetch = async () => {
-      let { data, error } = await supabase.from("FAQ").select("*").order("created_at", { ascending: false });
+      let { data, error } = await supabase
+        .from("FAQ")
+        .select("*")
+        .order("created_at", { ascending: false });
       if (error) {
         console.log(error.message);
         setIsFetching(false);
@@ -26,7 +28,10 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0">
+    <section
+      className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
+      data-aos="zoom-out"
+    >
       <SectionHeader
         title="Faqs"
         heading="Frequently Asked Questions"
@@ -36,11 +41,7 @@ export default function FAQ() {
       {faqs.length >= 1 && (
         <div className="">
           {faqs.map((item, idx) => (
-            <FaqsCard
-              key={idx}
-              idx={idx}
-              faqsList={item}
-            />
+            <FaqsCard key={idx} idx={idx} faqsList={item} />
           ))}
         </div>
       )}
@@ -73,15 +74,21 @@ const FaqsCard = (props: any) => {
     setAnswerH(`${answerElH + 20}px`);
   };
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with options
+  }, []);
   return (
     <div
       className="space-y-3 mt-5 overflow-hidden border-b"
       key={idx}
-      onClick={handleOpenAnswer}>
+      onClick={handleOpenAnswer}
+    >
       <h4 className="cursor-pointer pb-5 flex items-center justify-between text-lg text-gray-800/90 font-medium">
         <div className=" flex items-center gap-2">
           <IconFAQ className=" h-6 w-6 text-primary-600" />
-          <span className={`${state ? "text-primary-600" : ""}`}>{faqsList.q}</span>
+          <span className={`${state ? "text-primary-600" : ""}`}>
+            {faqsList.q}
+          </span>
         </div>
         {state ? (
           <svg
@@ -89,7 +96,8 @@ const FaqsCard = (props: any) => {
             className="h-5 w-5 text-primary-600 ml-2"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor">
+            stroke="currentColor"
+          >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -103,7 +111,8 @@ const FaqsCard = (props: any) => {
             className="h-5 w-5 text-primary-600 ml-2"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor">
+            stroke="currentColor"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -116,7 +125,8 @@ const FaqsCard = (props: any) => {
       <div
         ref={answerElRef}
         className="duration-300"
-        style={state ? { height: answerH } : { height: "0px" }}>
+        style={state ? { height: answerH } : { height: "0px" }}
+      >
         <div>
           <p className="text-gray-500">{faqsList.a}</p>
         </div>

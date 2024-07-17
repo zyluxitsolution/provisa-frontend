@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "@smastrom/react-rating/style.css";
-import { MapPin } from "lucide-react";
+import { ImageOff, MapPin } from "lucide-react";
 import SectionHeader from "../components/website/section-header";
 import { cn } from "../lib/utils";
 import Marquee from "../components/website/magicui/marquee";
 import { supabase } from "../supabaseclient";
+import { useEffect } from "react";
+import AOS from "aos";
 
 const ReviewCard = ({ name, location, thumbnail }: any) => {
   return (
@@ -14,17 +16,16 @@ const ReviewCard = ({ name, location, thumbnail }: any) => {
         // light styles
         "border-primary-200/60 bg-gray-800/[.01] hover:bg-gray-800/[.05] hover:border-primary-200"
         // dark styles
-      )}>
+      )}
+    >
       <div className="flex flex-row items-center gap-2">
         <div className="flex flex-col w-full">
-          <figcaption className="text-sm font-medium text-800/95 text-secondary-600 ">{name}</figcaption>
+          <figcaption className="text-sm font-medium text-800/95 text-secondary-600 ">
+            {name}
+          </figcaption>
           <div className=" flex items-center justify-end">
             <p className="text-sm font-medium  flex items-center gap-1 text-gray-800">
-              <MapPin
-                size={16}
-                className=""
-              />{" "}
-              {location}
+              <MapPin size={16} className="" /> {location}
             </p>
           </div>
         </div>
@@ -45,7 +46,10 @@ export default function Universities() {
   const [isFetching, setIsFetching] = useState(false);
   React.useEffect(() => {
     const fetch = async () => {
-      let { data, error } = await supabase.from("University").select("*").order("created_at", { ascending: false });
+      let { data, error } = await supabase
+        .from("University")
+        .select("*")
+        .order("created_at", { ascending: false });
       if (error) {
         console.log(error.message);
         setIsFetching(false);
@@ -64,8 +68,14 @@ export default function Universities() {
   const thirdRow = universities.slice(0, universities.length / 2);
   const fourthRow = universities.slice(universities.length / 2);
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with options
+  }, []);
   return (
-    <div className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0">
+    <div
+      className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
+      data-aos="zoom-out"
+    >
       <section className="">
         <SectionHeader
           title="Universities"
@@ -74,48 +84,26 @@ export default function Universities() {
         />
         {universities.length >= 1 && (
           <div className="relative  flex h-full w-full flex-col   overflow-hidden  ">
-            <Marquee
-              pauseOnHover
-              className="[--duration:20s]">
-              {firstRow.map((review:any) => (
-                <ReviewCard
-                  key={review.username}
-                  {...review}
-                />
+            <Marquee pauseOnHover className="[--duration:20s]">
+              {firstRow.map((review: any) => (
+                <ReviewCard key={review.username} {...review} />
               ))}
             </Marquee>
-            <Marquee
-              reverse
-              pauseOnHover
-              className="[--duration:20s]">
-              {secondRow.map((review:any) => (
-                <ReviewCard
-                  key={review.username}
-                  {...review}
-                />
+            <Marquee reverse pauseOnHover className="[--duration:20s]">
+              {secondRow.map((review: any) => (
+                <ReviewCard key={review.username} {...review} />
               ))}
             </Marquee>
 
-            <Marquee
-              pauseOnHover
-              className="[--duration:20s]">
-              {thirdRow.map((review:any) => (
-                <ReviewCard
-                  key={review.username}
-                  {...review}
-                />
+            <Marquee pauseOnHover className="[--duration:20s]">
+              {thirdRow.map((review: any) => (
+                <ReviewCard key={review.username} {...review} />
               ))}
             </Marquee>
 
-            <Marquee
-              reverse
-              pauseOnHover
-              className="[--duration:20s]">
-              {fourthRow.map((review:any) => (
-                <ReviewCard
-                  key={review.username}
-                  {...review}
-                />
+            <Marquee reverse pauseOnHover className="[--duration:20s]">
+              {fourthRow.map((review: any) => (
+                <ReviewCard key={review.username} {...review} />
               ))}
             </Marquee>
             <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white "></div>
