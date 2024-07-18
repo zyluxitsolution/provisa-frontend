@@ -110,7 +110,7 @@ const footerNavs = [
         showpostIcon: true,
       },
       {
-        href: "file:///C:/Users/AMIT/AppData/Local/Microsoft/Windows/INetCache/IE/BPLAO60S/COMPANY_PROFILE[1].pdf",
+        href: "https://drive.google.com/file/d/1_R63C3Lo8fFsi84tmTIOfShkeEyrX3VC/view?usp=drive_link",
         target: "_blank",
         name: "Company Profile",
         showpostIcon: true,
