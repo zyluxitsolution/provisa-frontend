@@ -57,7 +57,7 @@ const LargeImageCard: React.FC<ImageCardProps> = ({
   links,
 }) => {
   return (
-    <div className="relative group overflow-hidden rounded-lg shadow-lg h-[30rem]">
+    <div className="relative group overflow-hidden rounded-lg shadow-lg h-[30rem] ">
       <div className="relative w-full h-full">
         <img
           src={imageSrc}

@@ -15,17 +15,17 @@ export default function HeroSection() {
         {banners.map((banner, index) => (
           <CarouselItem
             key={index}
-            className={`${banner.bgimage} flex items-center justify-center h-[60vh] md:h-[80vh] relative `}
+            className={`${banner.bgimage} flex items-center justify-center h-[60vh] md:h-[80vh] relative`}
           >
-            <div className="w-full h-full absolute top-0 left-0  bg-primary-600  opacity-50 z-10"></div>
+            <div className="w-full h-full absolute top-0 left-0 bg-primary-600 opacity-50 z-10"></div>
             <div className="max-w-screen-xl mx-auto md:text-center space-y-6 px-4 md:px-0 z-10">
-              <h3 className=" text-3xl font-semibold sm:text-7xl text-white">
+              <h3 className="text-3xl font-semibold sm:text-7xl text-white">
                 {banner.title}
               </h3>
-              <p className=" max-w-2xl mx-auto text-white/70 font-medium">
+              <p className="max-w-2xl mx-auto text-white/70 font-medium">
                 {banner.description}
               </p>
-              <div className=" animate-bounce duration-700">
+              <div className="animate-bounce duration-700">
                 <Link to={"/contact"}>
                   <Button>Visit us for counselling</Button>
                 </Link>
@@ -34,8 +34,8 @@ export default function HeroSection() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      {/* <CarouselPrevious /> */}
-      {/* <CarouselNext /> */}
+      <CarouselPrevious className="ms-4" />
+      <CarouselNext className="me-4" />
     </Carousel>
   );
 }
