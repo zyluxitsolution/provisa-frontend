@@ -69,7 +69,7 @@ export default function Contact() {
                 {item.title}
               </h4>
               <div className="mt-3 flex items-center gap-x-3">
-                <div className="flex-none text-primary-600">{item.icon}</div>
+                <div className="flex-none text-primary-600 animate-bounce duration-700">{item.icon}</div>
                 <p className="text-gray-600  tracking-wide leading-relaxed">
                   {item.contact}
                 </p>
@@ -85,7 +85,7 @@ export default function Contact() {
                 {item.title}
               </h4>
               <div className="mt-3 flex items-center gap-x-3">
-                <div className="flex-none text-primary-600">{item.icon}</div>
+                <div className="flex-none text-primary-600 animate-bounce duration-700">{item.icon}</div>
                 <p className="text-gray-600  tracking-wide leading-relaxed">
                   {item.contact}
                 </p>

@@ -39,7 +39,7 @@ export default function Team() {
       <SectionHeader
         title="Our Team"
         heading="Meet our talent team"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi venenatis sollicitudin quam ut tincidunt."
+        description="Welcome to our Talent Team! We are a group of dedicated professionals passionate about identifying, nurturing, and supporting top talent. Our team brings together a diverse range of skills and experiences, ensuring we provide the best opportunities and resources for our members. We are committed to fostering a dynamic and inclusive environment where everyone can thrive and reach their full potential. Join us on our journey to success!"
       />
       <div className="mt-12">
         <ul className="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-4">

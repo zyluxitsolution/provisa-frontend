@@ -285,7 +285,7 @@ export default function Navbar() {
                   </li>
                 );
               })}
-              <div className="flex-1 items-center justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
+              <div  className=" animate-pulse  duration-1000 flex-1 items-center justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
                 <Link to={"/appointment"}>
                   <Button>
                     {" "}
