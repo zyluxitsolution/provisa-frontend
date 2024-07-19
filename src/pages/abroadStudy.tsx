@@ -21,32 +21,32 @@ const images: ImageCardProps[] = [
     description:
       "Australia has one of the best institutions and universities...",
     imageSrc: img1,
-    links: "/abroadstudy/australia",
-  },
-  {
-    title: "STUDY IN EUROPE",
-    description: "In terms of research and education, Europe is a...",
-    imageSrc: img2,
-    links: "/abroadstudy/australia",
-  },
-  {
-    title: "STUDY IN JAPAN",
-    description: "Education System in Japan In the decades following world...",
-    imageSrc: img4,
-    links: "/abroadstudy/japan",
-  },
-  {
-    title: "STUDY IN CANADA",
-    description:
-      "Study system in the Canada Its common knowledge that studying...",
-    imageSrc: img2,
-    links: "/abroadstudy/canada",
+    links: "/study-abroad/STUDY%20IN%20AUSTRALIA",
   },
   {
     title: "STUDY IN USA",
-    description: "Study system in the USA are the two major intake...",
+    description: "In terms of research and education, USA is a...",
+    imageSrc: img2,
+    links: "/study-abroad/usa-prepratopn",
+  },
+  {
+    title: "STUDY IN UK",
+    description: "Education System in UK In the decades following world...",
+    imageSrc: img4,
+    links: "/study-abroad/uk-prepration",
+  },
+  {
+    title: "STUDY IN japan",
+    description:
+      "Study system in the japan Its common knowledge that studying...",
+    imageSrc: img2,
+    links: "/study-abroad/Study%20In%20Japan",
+  },
+  {
+    title: "STUDY IN CANADA",
+    description: "Study system in the Canada are the two major intake...",
     imageSrc: img3,
-    links: "/abroadstudy/usa",
+    links: "/study-abroad/canada-prepration ",
   },
 ];
 
