@@ -5,7 +5,6 @@ import { TextParallaxContentExample } from "../components/website/TextParallaxCo
 import TestimonialSection from "../components/website/TestimonialSection";
 import Universities from "./universities";
 import AbroadStudy from "./abroadStudy";
-
 export default function Home() {
   return (
     <div className=" space-y-20 -mt-14 overflow-hidden">
@@ -16,6 +15,7 @@ export default function Home() {
       <TextParallaxContentExample />
       <Universities />
       <TestimonialSection />
+      {/* <InterviewPrep /> */}
     </div>
   );
 }

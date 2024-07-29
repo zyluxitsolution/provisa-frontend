@@ -17,7 +17,17 @@ import SingleBlog from "./pages/single-blog";
 import { useEffect } from "react";
 import MessageBtn from "./pages/messageBtn";
 import "./App.css";
-
+import BioData from "./pages/biodata";
+import InterviewPrep from "./pages/interview";
+import Course from "./pages/courseSelect";
+import Australia from "./pages/abroadStudy/Australia";
+import Japan from "./pages/abroadStudy/Japan";
+import USA from "./pages/abroadStudy/Usa";
+import Korea from "./pages/abroadStudy/SouthKorea";
+import Bangladesh from "./pages/abroadStudy/Bangladesh";
+import NewZealand from "./pages/abroadStudy/Newzealand";
+import Canada from "./pages/abroadStudy/Canada";
+import Europe from "./pages/abroadStudy/Europe";
 // declare global {
 //   interface Window {
 //     google: {
@@ -83,6 +93,17 @@ export default function App() {
             <Route path="/services/:slug" element={<SingleService />} />
 
             <Route path="/blogs/:slug" element={<SingleBlog />} />
+            <Route path="/biodata" element={<BioData />} />
+            <Route path="/interwiew" element={<InterviewPrep />} />
+            <Route path="/courses" element={<Course />} />
+            <Route path="/australia" element={<Australia />} />
+            <Route path="/japan" element={<Japan />} />
+            <Route path="/usa" element={<USA />} />
+            <Route path="/southkoreaa" element={<Korea />} />
+            <Route path="/bangladesh" element={<Bangladesh />} />
+            <Route path="/newzealand" element={<NewZealand />} />
+            <Route path="/canada" element={<Canada />} />
+            <Route path="/europe" element={<Europe />} />
           </Routes>
         </div>
         <MessageBtn />

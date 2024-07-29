@@ -10,7 +10,8 @@ export const TextParallaxContentExample = () => {
       <TextParallaxContent
         imgUrl="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         subheading="Collaborate"
-        heading="Empowering Your Education Journey.">
+        heading="Empowering Your Education Journey."
+      >
         <ExampleContent />
       </TextParallaxContent>
       {/* <TextParallaxContent
@@ -31,19 +32,22 @@ export const TextParallaxContentExample = () => {
 
 const IMG_PADDING = 12;
 
-const TextParallaxContent = ({ imgUrl, subheading, heading, children }: any) => {
+const TextParallaxContent = ({
+  imgUrl,
+  subheading,
+  heading,
+  children,
+}: any) => {
   return (
     <div
       style={{
         paddingLeft: IMG_PADDING,
         paddingRight: IMG_PADDING,
-      }}>
+      }}
+    >
       <div className="relative h-[60vh] md:h-[150vh]">
         <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy
-          heading={heading}
-          subheading={subheading}
-        />
+        <OverlayCopy heading={heading} subheading={subheading} />
       </div>
       {children}
     </div>
@@ -71,7 +75,8 @@ const StickyImage = ({ imgUrl }: any) => {
         scale,
       }}
       ref={targetRef}
-      className="sticky z-0 overflow-hidden rounded-md">
+      className="sticky z-0 overflow-hidden rounded-md"
+    >
       <motion.div
         className="absolute inset-0 bg-neutral-950/70"
         style={{
@@ -99,8 +104,11 @@ const OverlayCopy = ({ subheading, heading }: any) => {
         opacity,
       }}
       ref={targetRef}
-      className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white">
-      <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl ">{subheading}</p>
+      className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white"
+    >
+      <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl ">
+        {subheading}
+      </p>
       <p className="text-center text-3xl font-bold md:text-7xl">{heading}</p>
     </motion.div>
   );
@@ -108,27 +116,39 @@ const OverlayCopy = ({ subheading, heading }: any) => {
 
 const ExampleContent = () => (
   <div className="w-full md:w-8/12 mx-auto grid-cols-1 gap-8 px-4 pb-24 pt-12 ">
-    <h2 className="1 text-gray-800/95 text-3xl font-semibold sm:text-4xl">Empowering Your Education and Visa Journey.</h2>
+    <h2 className="1 text-gray-800/95 text-3xl font-semibold sm:text-4xl">
+      Empowering Your Education and Visa Journey.
+    </h2>
     <div className="">
       <p className="mb-4 text-gray-600/90  tracking-wide leading-relaxed text-justify">
-        Our collaborative approach is designed to support you every step of the way. We work closely with you to navigate the complexities of the education and visa process, ensuring a smooth and successful experience.Whether you need assistance with university applications, visa paperwork, or understanding international requirements, our expert team is here to help. We strive to make your educational and immigration aspirations a reality through personalized guidance and unwavering support.
+        Our collaborative approach is designed to support you every step of the
+        way. We work closely with you to navigate the complexities of the
+        education and visa process, ensuring a smooth and successful
+        experience.Whether you need assistance with university applications,
+        visa paperwork, or understanding international requirements, our expert
+        team is here to help. We strive to make your educational and immigration
+        aspirations a reality through personalized guidance and unwavering
+        support.
       </p>
 
       <p className="mb-8 text-gray-600/90  tracking-wide leading-relaxed text-justify">
-        Professional Visa and Education Services Pvt. Ltd. (Pro-Visa) is a professional visa and educational consultancy authorized by the Ministry of Education (MOE) and offering free education to students interested in studying abroad. Our offices are in Kathmandu and Nepalgunj. We have a Learning Center that is fully equipped with ultra-modern facilities and provides students with our best advisors and tutors for Test Preparation Classes in order to provide better service to our students. We
-        are proud of our students who have been successful in their careers as a result of our counseling and guidance, in addition to our high visa success rate. As a result, we may be Nepals best education consultancy.
+        Professional Visa and Education Services Pvt. Ltd. (Pro-Visa) is a
+        professional visa and educational consultancy authorized by the Ministry
+        of Education (MOE) and offering free education to students interested in
+        studying abroad. Our offices are in Kathmandu and Nepalgunj. We have a
+        Learning Center that is fully equipped with ultra-modern facilities and
+        provides students with our best advisors and tutors for Test Preparation
+        Classes in order to provide better service to our students. We are proud
+        of our students who have been successful in their careers as a result of
+        our counseling and guidance, in addition to our high visa success rate.
+        As a result, we may be Nepals best education consultancy.
       </p>
 
-     <Link to={"/about"}>
-     <Button>
-        Learn more{" "}
-        <ChevronRight
-          size={16}
-          className="inline"
-        />
-      </Button>
-     
-     </Link>
+      <Link to={"/about"}>
+        <Button>
+          Learn more <ChevronRight size={16} className="inline" />
+        </Button>
+      </Link>
     </div>
   </div>
 );
