@@ -35,7 +35,7 @@ const Page: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div data-aos="zoom-out" data-aos-duration="1000">
       <AbroadCard
         topic={"Study in Japan"}
         bannerimg={"/public/studyAbroad/japan.jpg"}

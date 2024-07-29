@@ -27,7 +27,7 @@ const Canada: React.FC = () => {
     "In order to apply for a Master’s degree in Canada, you must have completed 16 years of post-secondary education. The required IELTS score for postgraduate programs varies from one program to the next, just as it does for undergraduate courses.";
 
   return (
-    <div>
+    <div data-aos="zoom-out" data-aos-duration="1000">
       <AbroadCard
         bannerimg={"/public/studyAbroad/canada.avif"}
         eduSystem={eduSystem}

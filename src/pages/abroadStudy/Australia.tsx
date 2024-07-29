@@ -67,7 +67,7 @@ const Australia: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div data-aos="zoom-out" data-aos-duration="1000">
       <AbroadCard
         topic={"Study in Australia"}
         descLists={descLists}

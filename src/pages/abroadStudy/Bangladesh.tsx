@@ -25,10 +25,8 @@ const Bangladesh: React.FC = () => {
     "Postgraduate programs in Bangladesh usually take one to two years to complete. A Master’s degree may require coursework and a research project, while PhD programs involve extensive research and dissertation work. English proficiency tests may be required for admission.";
 
   return (
-    <div>
+    <div data-aos="zoom-out" data-aos-duration="1000">
       <AbroadCard
-        topic={"Study in Bangladesh"}
-        imgsrc={"/abroadstudy.webp"}
         bannerimg={"/public/studyAbroad/bangladesh.webp"}
         eduSystem={eduSystem}
         descLists={descLists}

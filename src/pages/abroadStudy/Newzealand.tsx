@@ -25,7 +25,7 @@ const NewZealand: React.FC = () => {
     "Master’s programs in New Zealand typically take one to two years to complete, while PhD programs may take three to four years. English language proficiency tests may be required for admission, and many programs offer research opportunities and internships.";
 
   return (
-    <div>
+    <div data-aos="zoom-out" data-aos-duration="1000">
       <AbroadCard
         bannerimg={"/public/studyAbroad/newZealand.jpg"}
         eduSystem={eduSystem}

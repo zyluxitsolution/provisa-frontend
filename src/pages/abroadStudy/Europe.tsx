@@ -24,7 +24,7 @@ const Europe: React.FC = () => {
     "Postgraduate programs in Europe generally last one to two years. Many universities offer a range of Master's programs, including research-focused and professional degrees. Admission requirements typically include a relevant undergraduate degree and sometimes work experience or additional qualifications. English language proficiency tests may be required depending on the program and country.";
 
   return (
-    <div>
+    <div data-aos="zoom-out" data-aos-duration="1000">
       <AbroadCard
         bannerimg={"/public/studyAbroad/europe.jpg"}
         eduSystem={eduSystem}

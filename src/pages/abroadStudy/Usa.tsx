@@ -24,7 +24,7 @@ const USA: React.FC = () => {
     "A postgraduate degree is known as a Graduate degree in the United States. In most cases, universities that offer Bachelor’s degrees also offer Master’s and PhD programs. In the United States, master’s programs are either academic or professional. Most students pursuing a Master’s degree will be required to take tests such as the GRE or GMAT in order to obtain funding and scholarships. A master’s degree usually takes two years to complete.";
 
   return (
-    <div>
+    <div data-aos="zoom-out" data-aos-duration="1000">
       <AbroadCard
         bannerimg={"/public/studyAbroad/usa.jpg"}
         eduSystem={eduSystem}

@@ -25,7 +25,7 @@ const Korea: React.FC = () => {
     "Master’s and doctoral programs in South Korea are highly regarded. A Master’s degree generally takes two years to complete, while a PhD program may take three to five years. English proficiency tests such as TOEFL or IELTS may be required for admission.";
 
   return (
-    <div>
+    <div data-aos="zoom-out" data-aos-duration="1000">
       <AbroadCard
         topic={"Study in South Korea"}
         imgsrc={"/abroadstudy.webp"}
