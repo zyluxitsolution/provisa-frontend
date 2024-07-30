@@ -40,10 +40,10 @@ const images: ImageCardProps[] = [
     title: "STUDY IN CANADA",
     description: "Study system in the Canada are the two major intake...",
     imageSrc: img3,
-    links: "/study-abroad/canada-prepration ",
+    links: "/study-abroad/canada-prepration",
   },
   {
-    title: "STUDY IN Japan",
+    title: "STUDY IN JAPAN",
     description:
       "Study system in the japan Its common knowledge that studying...",
     imageSrc: img2,

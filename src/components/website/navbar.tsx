@@ -150,7 +150,7 @@ export default function Navbar() {
     <>
       <nav
         id="google_translate_element"
-        className={`relative z-20 bg-white w-full md:static md:text-base md:border-none ${
+        className={`relative z-20  bg-gray-50 w-full md:static md:text-base md:border-none ${
           state ? "shadow-lg rounded-b-xl md:shadow-none" : ""
         }`}
       >
