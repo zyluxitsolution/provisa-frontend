@@ -40,7 +40,10 @@ const Course: React.FC = () => {
   ];
 
   return (
-    <div className="w-[90%] md:w-[80%] mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div
+      className="w-[90%] md:w-[80%] mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      data-aos="zoom-out"
+    >
       {courses.map((course, index) => (
         <CardComponent
           key={index}

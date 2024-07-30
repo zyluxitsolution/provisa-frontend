@@ -29,7 +29,9 @@ const CardComponent: React.FC<CardComponentProps> = ({
         />
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-semibold text-center">{title}</h3>
+        <h3 className="text-lg md:text-2xl font-semibold text-center">
+          {title}
+        </h3>
         {description && <p className="mt-2 text-gray-600">{description}</p>}
       </div>
     </Link>

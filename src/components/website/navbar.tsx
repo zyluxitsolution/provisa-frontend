@@ -354,7 +354,7 @@ export default function Navbar() {
                         </div>
                       </Link>
                       <Link
-                        to={"/resources"}
+                        to={"/sop"}
                         className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
                         onClick={() => {
                           setShowResources(false);
