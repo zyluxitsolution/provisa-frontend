@@ -101,11 +101,11 @@ export default function Universities() {
               ))}
             </Marquee>
 
-            <Marquee reverse pauseOnHover className="[--duration:20s]">
+            {/* <Marquee reverse pauseOnHover className="[--duration:20s]">
               {fourthRow.map((review: any) => (
                 <ReviewCard key={review.username} {...review} />
               ))}
-            </Marquee>
+            </Marquee> */}
             <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white "></div>
             <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white "></div>
           </div>
