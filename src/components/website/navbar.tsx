@@ -153,14 +153,14 @@ export default function Navbar() {
     <>
       <nav
         id="google_translate_element"
-        className={`relative z-20 bg-white w-full md:static md:text-base md:border-none overflow-y-scroll md:overflow-hidden ${
+        className={`relative z-20  bg-gray-50 w-full md:static md:text-base md:border-none overflow-y-scroll md:overflow-hidden ${
           state ? "shadow-lg rounded-b-xl md:shadow-none" : ""
         }`}
       >
         <div className="items-center gap-x-14 px-4 md:px-0 w-[95%] mx-auto md:flex  ">
           <div className="flex items-center justify-between py-3 md:py-5 md:block ">
             <Link to="/">
-              <img src={logo} width={180} height={180} alt="logo" />
+              <img src={logo} alt="logo" className="  w-56 object-cover" />
             </Link>
             <div className="md:hidden">
               <button
@@ -237,8 +237,8 @@ export default function Navbar() {
                     {item.isDrapdown &&
                     drapdownState.idx == idx &&
                     drapdownState.isActive ? (
-                      <div className="mt-6 inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 bg-secondary-950  ">
-                        <ul className="max-w-screen-xl mx-auto grid items-center gap-6 md:p-8 md:grid-cols-2  ">
+                      <div className="mt-6   inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 bg-secondary-950  ">
+                        <ul className="max-w-screen-xl  mx-auto grid items-center gap-6 md:p-8 md:grid-cols-2  ">
                           {item.navs &&
                             item.navs.map((el, index) => (
                               <li
@@ -326,8 +326,9 @@ export default function Navbar() {
                             {" "}
                             Interview Preperation
                           </span>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Accusantium, nostrum.
+                          Visa interview is an important step prior to the final
+                          confirmation of student visa approval for most
+                          countries including Australia, Canada, Germany,
                         </div>
                       </Link>
                       <Link
@@ -349,8 +350,8 @@ export default function Navbar() {
                             {" "}
                             BioData
                           </span>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Accusantium, nostrum.
+                          The Curriculum Vitae serves as a good supplement to
+                          your statement and other application materials.
                         </div>
                       </Link>
                       <Link
@@ -372,8 +373,9 @@ export default function Navbar() {
                             {" "}
                             Statement of Purpose
                           </span>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Accusantium, nostrum.
+                          A Statement of Purpose (SOP) is a critical document
+                          required for applications to academic programs,
+                          scholarships, and some job positions.
                         </div>
                       </Link>
 
@@ -397,15 +399,15 @@ export default function Navbar() {
                             {" "}
                             Course Selection{" "}
                           </span>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing
-                          elit. Accusantium, nostrum.
+                          Selecting the right courses is crucial to achieving
+                          your academic and career goals.
                         </div>
                       </Link>
                     </div>
                   </div>
                 )}
               </div>
-              <div className="flex-1 items-center justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
+              <div className="flex-1 items-center animate-pulse  justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
                 <Link to={"/appointment"}>
                   <Button>
                     {" "}

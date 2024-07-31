@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import logo from "../../../public/logo/logowhite.png";
+import logo from "../../assets/logonew.jpg";
 import { ChevronRight, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
@@ -21,9 +21,8 @@ export default function Footer() {
             <img
               src={logo}
               alt="logo"
-              height={300}
-              width={300}
-              className="text-secondary-50"
+      
+              className="text-secondary-50 object-cover w-full rounded-full h-20"
             />
             <p className="leading-relaxed mt-2 text-[15px] tracking-wide">
               Dont just take our word for it, come see us and let us show you
