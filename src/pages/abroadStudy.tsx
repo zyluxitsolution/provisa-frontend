@@ -1,10 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SectionHeader from "../components/website/section-header";
-import img1 from "../../public/studyAbroad/study1.webp";
-import img2 from "../../public/studyAbroad/study2.webp";
-import img3 from "../../public/studyAbroad/study3.webp";
-import img4 from "../../public/studyAbroad/study4.webp";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -20,34 +16,64 @@ const images: ImageCardProps[] = [
     title: "STUDY IN AUSTRALIA",
     description:
       "Australia has one of the best institutions and universities...",
-    imageSrc: img1,
-    links: "/study-abroad/STUDY%20IN%20AUSTRALIA",
+    imageSrc: "/public/studyAbroad/australia.jpg",
+    links: "/australia",
   },
   {
-    title: "STUDY IN USA",
-    description: "In terms of research and education, USA is a...",
-    imageSrc: img2,
-    links: "/study-abroad/usa-prepratopn",
+    title: "STUDY IN EUROPE",
+    description: "In terms of research and education, Europe is a...",
+    imageSrc: "/public/studyAbroad/europe.jpg",
+    links: "/europe",
   },
   {
-    title: "STUDY IN UK",
-    description: "Education System in UK In the decades following world...",
-    imageSrc: img4,
-    links: "/study-abroad/uk-prepration",
+    title: "STUDY IN JAPAN",
+    description: "Education System in Japan In the decades following world...",
+    imageSrc: "/public/studyAbroad/japan.jpg",
+    links: "/japan",
   },
 
   {
     title: "STUDY IN CANADA",
     description: "Study system in the Canada are the two major intake...",
-    imageSrc: img3,
+    imageSrc:"/public/studyAbroad/canada.avif",
     links: "/study-abroad/canada-prepration",
   },
   {
     title: "STUDY IN JAPAN",
     description:
-      "Study system in the japan Its common knowledge that studying...",
-    imageSrc: img2,
-    links: "/study-abroad/Study%20In%20Japan",
+      "Study system in the Canada Its common knowledge that studying...",
+    imageSrc: "/public/studyAbroad/canada.avif",
+    links: "/canada",
+  },
+  {
+    title: "STUDY IN USA",
+    description: "Study system in the USA are the two major intake...",
+    imageSrc: "/public/studyAbroad/usa.jpg",
+    links: "/usa",
+  },
+];
+
+const additionalImages: ImageCardProps[] = [
+  {
+    title: "STUDY IN SOUTH KOREA",
+    description:
+      "South Korea offers a dynamic environment for international students...",
+    imageSrc: "/studyAbroad/southkorea.webp",
+    links: "/southkoreaa",
+  },
+  {
+    title: "STUDY IN NEW ZEALAND",
+    description:
+      "New Zealand provides world-class education and unique opportunities...",
+    imageSrc: "/public/studyAbroad/newZealand.jpg",
+    links: "/newzealand",
+  },
+  {
+    title: "STUDY IN BANGLADESH",
+    description:
+      "Bangladesh offers diverse educational opportunities and vibrant culture...",
+    imageSrc: "/public/studyAbroad/bangladesh.webp",
+    links: "/bangladesh",
   },
 ];
 
@@ -125,23 +151,33 @@ const SmallImageCard: React.FC<ImageCardProps> = ({
 
 const ImageGrid: React.FC = () => {
   const largeImage = images[0];
-  const smallImages = images.slice(1, 5);
+  const smallImages = images.slice(1);
 
   return (
-    <div
-      className="grid grid-cols-1 lg:grid-cols-4 gap-4 max-w-7xl mx-auto p-4"
-      data-aos="zoom-in"
-    >
-      <div className="lg:col-span-2">
-        <LargeImageCard
-          title={largeImage.title}
-          description={largeImage.description}
-          imageSrc={largeImage.imageSrc}
-          links={largeImage.links}
-        />
+    <div className="space-y-4 max-w-7xl mx-auto p-4" data-aos="zoom-in">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <div className="lg:col-span-2 lg:row-span-2">
+          <LargeImageCard
+            title={largeImage.title}
+            description={largeImage.description}
+            imageSrc={largeImage.imageSrc}
+            links={largeImage.links}
+          />
+        </div>
+        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-2">
+          {smallImages.map((image, index) => (
+            <SmallImageCard
+              key={index}
+              title={image.title}
+              description={image.description}
+              imageSrc={image.imageSrc}
+              links={image.links}
+            />
+          ))}
+        </div>
       </div>
-      <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {smallImages.map((image, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
+        {additionalImages.map((image, index) => (
           <SmallImageCard
             key={index}
             title={image.title}
@@ -166,8 +202,8 @@ const AbroadStudy: React.FC = () => {
     >
       <SectionHeader
         title="Abroad study"
-        heading=" Abroad Study"
-        description=" Discover opportunities to study abroad in top educational destinations worldwide. We provide comprehensive guidance and support to help you pursue your academic goals internationally"
+        heading="Abroad Study"
+        description="Discover opportunities to study abroad in top educational destinations worldwide. We provide comprehensive guidance and support to help you pursue your academic goals internationally."
       />
       <ImageGrid />
     </div>

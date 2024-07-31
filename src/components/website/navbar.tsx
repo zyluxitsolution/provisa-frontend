@@ -9,6 +9,7 @@ import { IconService } from "../svg-icons/IconService";
 // import { usePathname } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 import { Link, useLocation } from "react-router-dom";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 export default function Navbar() {
   const supabase = createClient(
@@ -26,6 +27,8 @@ export default function Navbar() {
   const [isFetching, setIsFetching] = useState(false);
   const [testPreparations, setTestPreparations] = useState<any[]>([]);
   const [isFetching2, setIsFetching2] = useState(false);
+
+  const [showResources, setShowResources] = useState(false);
 
   const [services, setServices] = useState<any[]>([]);
   const [isFetching3, setIsFetching3] = useState(false);
@@ -150,11 +153,11 @@ export default function Navbar() {
     <>
       <nav
         id="google_translate_element"
-        className={`relative z-20  bg-gray-50 w-full md:static md:text-base md:border-none ${
+        className={`relative z-20 bg-white w-full md:static md:text-base md:border-none overflow-y-scroll md:overflow-hidden ${
           state ? "shadow-lg rounded-b-xl md:shadow-none" : ""
         }`}
       >
-        <div className="items-center gap-x-14 px-4 md:px-0 max-w-screen-xl mx-auto md:flex  ">
+        <div className="items-center gap-x-14 px-4 md:px-0 w-[95%] mx-auto md:flex  ">
           <div className="flex items-center justify-between py-3 md:py-5 md:block ">
             <Link to="/">
               <img src={logo} width={180} height={180} alt="logo" />
@@ -182,12 +185,13 @@ export default function Navbar() {
                       <button
                         type="button"
                         className="w-full flex items-center justify-between gap-1 text-[ #333] hover:text-primary-600 duration-300 "
-                        onClick={() =>
+                        onClick={() => {
                           setDrapdownState({
                             idx,
                             isActive: !drapdownState.isActive,
-                          })
-                        }
+                          }),
+                            setShowResources(false);
+                        }}
                       >
                         {item.title}
                         {drapdownState.idx == idx && drapdownState.isActive ? (
@@ -285,7 +289,123 @@ export default function Navbar() {
                   </li>
                 );
               })}
-              <div className=" animate-pulse  duration-1000 flex-1 items-center justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
+              <div>
+                <div
+                  className=" cursor-pointer hover:text-primary-600 duration-300 flex items-center gap-1"
+                  onClick={() => {
+                    setShowResources(!showResources);
+                  }}
+                >
+                  Resources{" "}
+                  {showResources === false ? (
+                    <RiArrowDownSLine className=" text-lg" />
+                  ) : (
+                    <RiArrowUpSLine className=" text-lg" />
+                  )}
+                </div>
+                {/* code for showing resources links */}
+                {showResources && (
+                  <div className="mt-6 inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 bg-secondary-950 py-5">
+                    <div className=" px-2 md:px-0 md:w-[80%] mx-auto grid md:grid-cols-2 gap-4">
+                      <Link
+                        to={"/interwiew"}
+                        className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
+                        onClick={() => {
+                          setShowResources(false);
+                        }}
+                      >
+                        <div className=" bg-secondary-900 rounded-full h-fit p-2 hidden md:block">
+                          <img
+                            src="/public/team/icons8-interview-64.png"
+                            alt=" interview"
+                            className=" h-8 w-8 "
+                          />
+                        </div>
+                        <div className=" flex-col flex gap-1 text-sm text-white">
+                          <span className=" font-semibold text-lg">
+                            {" "}
+                            Interview Preperation
+                          </span>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Accusantium, nostrum.
+                        </div>
+                      </Link>
+                      <Link
+                        to={"/biodata"}
+                        className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
+                        onClick={() => {
+                          setShowResources(false);
+                        }}
+                      >
+                        <div className=" bg-secondary-900 rounded-full h-fit p-2 hidden md:block">
+                          <img
+                            src="/public/team/icons8-cv-writing-53.png"
+                            alt=" interview"
+                            className=" h-8 w-8 "
+                          />
+                        </div>
+                        <div className=" flex-col flex gap-1 text-sm text-white">
+                          <span className=" font-semibold text-lg">
+                            {" "}
+                            BioData
+                          </span>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Accusantium, nostrum.
+                        </div>
+                      </Link>
+                      <Link
+                        to={"/sop"}
+                        className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
+                        onClick={() => {
+                          setShowResources(false);
+                        }}
+                      >
+                        <div className=" bg-secondary-900 rounded-full h-fit p-2 hidden md:block">
+                          <img
+                            src="/public/team/icons8-interview-64.png"
+                            alt=" interview"
+                            className=" h-8 w-8 "
+                          />
+                        </div>
+                        <div className=" flex-col flex gap-1 text-sm text-white">
+                          <span className=" font-semibold text-lg">
+                            {" "}
+                            Statement of Purpose
+                          </span>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Accusantium, nostrum.
+                        </div>
+                      </Link>
+
+                      {/* couurse section */}
+                      <Link
+                        to="/courses"
+                        className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
+                        onClick={() => {
+                          setShowResources(false);
+                        }}
+                      >
+                        <div className=" bg-secondary-900 rounded-full h-fit p-2 hidden md:block">
+                          <img
+                            src="/public/team/icons8-interview-64.png"
+                            alt=" interview"
+                            className=" h-8 w-8 "
+                          />
+                        </div>
+                        <div className=" flex-col flex gap-1 text-sm text-white">
+                          <span className=" font-semibold text-lg">
+                            {" "}
+                            Course Selection{" "}
+                          </span>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing
+                          elit. Accusantium, nostrum.
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div className="flex-1 items-center justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
                 <Link to={"/appointment"}>
                   <Button>
                     {" "}
@@ -299,7 +419,7 @@ export default function Navbar() {
       </nav>
       {state ? (
         <div
-          className="z-10 fixed top-0 w-screen h-screen bg-black/20 backdrop-blur-sm md:hidden"
+          className="z-10 fixed top-0 w-screen h-screen overscroll-y-scroll bg-black/20 backdrop-blur-sm md:hidden"
           onClick={() => setState(false)}
         ></div>
       ) : (
