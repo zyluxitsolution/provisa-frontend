@@ -69,7 +69,7 @@ export default function Contact() {
                 {item.title}
               </h4>
               <div className="mt-3 flex items-center gap-x-3">
-                <div className="flex-none text-primary-600">{item.icon}</div>
+                <div className="flex-none text-primary-600 animate-bounce duration-700">{item.icon}</div>
                 <p className="text-gray-600  tracking-wide leading-relaxed">
                   {item.contact}
                 </p>
@@ -78,21 +78,21 @@ export default function Contact() {
           ))}
         </div>
 
-        <div className=" flex flex-wrap gap-x-12 gap-y-6 items-center lg:gap-x-24 mt-12">
+        {/* <div className=" flex flex-wrap gap-x-12 gap-y-6 items-center lg:gap-x-24 mt-12">
           {nepaljungContactMethods.map((item, idx) => (
             <div key={idx}>
               <h4 className="text-gray-800/90 text-lg font-medium">
                 {item.title}
               </h4>
               <div className="mt-3 flex items-center gap-x-3">
-                <div className="flex-none text-primary-600">{item.icon}</div>
+                <div className="flex-none text-primary-600 animate-bounce duration-700">{item.icon}</div>
                 <p className="text-gray-600  tracking-wide leading-relaxed">
                   {item.contact}
                 </p>
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </section>
 
       <section data-aos="fade-up">

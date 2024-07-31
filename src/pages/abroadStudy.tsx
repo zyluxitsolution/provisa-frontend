@@ -31,8 +31,15 @@ const images: ImageCardProps[] = [
     imageSrc: "/public/studyAbroad/japan.jpg",
     links: "/japan",
   },
+
   {
     title: "STUDY IN CANADA",
+    description: "Study system in the Canada are the two major intake...",
+    imageSrc:"/public/studyAbroad/canada.avif",
+    links: "/study-abroad/canada-prepration",
+  },
+  {
+    title: "STUDY IN JAPAN",
     description:
       "Study system in the Canada Its common knowledge that studying...",
     imageSrc: "/public/studyAbroad/canada.avif",
@@ -77,7 +84,7 @@ const LargeImageCard: React.FC<ImageCardProps> = ({
   links,
 }) => {
   return (
-    <div className="relative group overflow-hidden rounded-lg shadow-lg h-[30rem]">
+    <div className="relative group overflow-hidden rounded-lg shadow-lg h-[30rem] ">
       <div className="relative w-full h-full">
         <img
           src={imageSrc}

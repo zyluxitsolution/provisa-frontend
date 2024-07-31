@@ -20,7 +20,7 @@ export default function StatSection() {
       title: "Countries",
     },
     {
-      data: 9,
+      data: 15,
       title: "Years of experience",
     },
   ];
