@@ -38,13 +38,13 @@ const images: ImageCardProps[] = [
     imageSrc: "/public/studyAbroad/canada.avif",
     links: "/study-abroad/canada-prepration",
   },
-  {
-    title: "STUDY IN JAPAN",
-    description:
-      "Study system in the Canada Its common knowledge that studying...",
-    imageSrc: "/public/studyAbroad/canada.avif",
-    links: "/canada",
-  },
+  // {
+  //   title: "STUDY IN JAPAN",
+  //   description:
+  //     "Study system in the Canada Its common knowledge that studying...",
+  //   imageSrc: "/public/studyAbroad/canada.avif",
+  //   links: "/canada",
+  // },
   {
     title: "STUDY IN USA",
     description: "Study system in the USA are the two major intake...",

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import logo from "../../../public/logo/logowhite.png";
+import logo from "../../assets/logonew.jpg";
 import { ChevronRight, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import AOS from "aos";

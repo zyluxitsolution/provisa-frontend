@@ -31,7 +31,7 @@ export default function StudyAbroad() {
         </div>
         <div className="mt-12">
           {studyAbroads.length >= 1 && (
-            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
               {studyAbroads?.map((item, idx) => (
                 <Link
                   to={`/study-abroad/${item.slug}`}

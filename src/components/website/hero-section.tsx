@@ -25,7 +25,7 @@ export default function HeroSection() {
               <p className="max-w-2xl mx-auto text-white/70 font-medium">
                 {banner.description}
               </p>
-              <div className="animate-bounce duration-700">
+              <div className="animate-bounce duration-1000">
                 <Link to={"/contact"}>
                   <Button>Visit us for counselling</Button>
                 </Link>

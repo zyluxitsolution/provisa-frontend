@@ -52,7 +52,7 @@ export default function Contact() {
   }, []);
   return (
     <div
-      className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
+      className="w-full shadow-lg md:w-9/12 mx-auto space-y-20 px-4 md:px-10 py-4"
       data-aos="zoom-out"
     >
       <section>
