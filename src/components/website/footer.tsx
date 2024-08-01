@@ -18,12 +18,7 @@ export default function Footer() {
           data-aos-once="false"
         >
           <div className="max-w-xs">
-            <img
-              src={logo}
-              alt="logo"
-      
-              className="text-secondary-50 object-cover w-full rounded-full h-20"
-            />
+            <img src={logo} alt="logo" height={300} width={300} className="" />
             <p className="leading-relaxed mt-2 text-[15px] tracking-wide">
               Dont just take our word for it, come see us and let us show you
               that youve come to the right place.
