@@ -60,7 +60,7 @@ export default function Appointment() {
         <SectionHeader
           title="Appointment Form"
           heading="Book an Appointment"
-          description="Please fill out the form below to book an appointment with us. We will get back to you as soon as possible"
+          description="Please fill   out the form below to book an appointment with us. We will get back to you as soon as possible"
         />
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
