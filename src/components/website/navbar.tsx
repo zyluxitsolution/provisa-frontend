@@ -11,6 +11,13 @@ import { createClient } from "@supabase/supabase-js";
 import { Link, useLocation } from "react-router-dom";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
+import usa from "../../../public/studyAbroad/australia.jpg";
+import canada from "../../../public/studyAbroad/canada.avif";
+import australia from "../../../public/studyAbroad/australia.jpg";
+import uk from "../../../public/studyAbroad/europe.jpg";
+import newzealand from "../../../public/studyAbroad/newZealand.jpg";
+import sk from "../../../public/studyAbroad/southkorea.webp";
+
 export default function Navbar() {
   const supabase = createClient(
     "https://bwlxylhhnhcpevyeseyr.supabase.co",
@@ -149,6 +156,33 @@ export default function Navbar() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  // study abroad images
+  const studyAbroadImage = [
+    {
+      id: 1,
+      img: usa,
+    },
+    {
+      id: 1,
+      img: usa,
+    },
+    {
+      id: 1,
+      img: usa,
+    },
+    {
+      id: 1,
+      img: usa,
+    },
+    {
+      id: 1,
+      img: usa,
+    },
+    {
+      id: 1,
+      img: usa,
+    },
+  ];
   return (
     <>
       <nav
@@ -238,7 +272,7 @@ export default function Navbar() {
                     drapdownState.idx == idx &&
                     drapdownState.isActive ? (
                       <div className="mt-6 inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 bg-secondary-950  ">
-                        <ul className="max-w-screen-xl mx-auto grid items-center gap-6 md:p-8 md:grid-cols-2  ">
+                        <ul className="max-w-screen-xl mx-auto grid h-[25rem] overflow-y-scroll md:overflow-hidden md:h-fit items-center gap-6 md:p-8 md:grid-cols-2  ">
                           {item.navs &&
                             item.navs.map((el, index) => (
                               <li
@@ -258,9 +292,13 @@ export default function Navbar() {
                                   className="flex gap-3"
                                 >
                                   <div className=" hidden md:block">
-                                    <div className=" bg-secondary-900 h-10 w-10 p-2 flex items-center justify-center rounded-3xl">
+                                    <div className=" bg-secondary-950 h-10 w-10 flex items-center justify-center rounded-3xl">
                                       {item.title === "Abroad Study" && (
-                                        <IconGlobe className=" h-10 w-10  text-secondary-100" />
+                                        <img
+                                          src={usa}
+                                          alt={"abroad study"}
+                                          className="h-9 w-9 rounded-full"
+                                        />
                                       )}
                                       {item.title === "Test Preparation" && (
                                         <IconTestPreparation className=" h-8 w-8 text-secondary-100" />
@@ -305,15 +343,9 @@ export default function Navbar() {
                 </div>
                 {/* code for showing resources links */}
                 {showResources && (
-                  <div className="mt-6 inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 bg-secondary-950 py-5">
+                  <div className="mt-6 bg-secondary-950 inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 bg-black-950 md:h-fit h-[20rem] overflow-y-scroll md:overflow-hidden py-5">
                     <div className=" px-2 md:px-0 md:w-[80%] mx-auto grid md:grid-cols-2 gap-4">
-                      <Link
-                        to={"/interwiew"}
-                        className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
-                        onClick={() => {
-                          setShowResources(false);
-                        }}
-                      >
+                      <Link to={"/interwiew"}>
                         <div className=" bg-secondary-900 rounded-full h-fit p-2 hidden md:block">
                           <img
                             src="/public/team/icons8-interview-64.png"
