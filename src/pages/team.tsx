@@ -54,10 +54,9 @@ export default function Team() {
                   {item.thumbnail && (
                     <img
                       src={item.thumbnail}
-                      className="h-80 object-cover group-hover:-translate-y-px"
+                      className="md:h-80 object-cover group-hover:-translate-y-px "
                       alt="img"
-                      height={600}
-                      width={600}
+                    
                     />
                   )}
                 </div>
