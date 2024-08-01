@@ -346,7 +346,7 @@ export default function Navbar() {
                   <div className="mt-6 bg-secondary-950 inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 bg-black-950 md:h-fit h-[20rem] overflow-y-scroll md:overflow-hidden py-5">
                     <div className=" px-2 md:px-0 md:w-[80%] mx-auto grid md:grid-cols-2 gap-4">
                       <Link to={"/interwiew"}>
-                        <div className=" bg-secondary-900 rounded-full h-fit p-2 hidden md:block">
+                        <div className=" bg-secondary-900 rounded-full h-fit w-fit p-2 hidden md:block">
                           <img
                             src="/public/team/icons8-interview-64.png"
                             alt=" interview"
