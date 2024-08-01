@@ -19,12 +19,12 @@ const images: ImageCardProps[] = [
     imageSrc: "/public/studyAbroad/australia.jpg",
     links: "/australia",
   },
-  {
-    title: "STUDY IN EUROPE",
-    description: "In terms of research and education, Europe is a...",
-    imageSrc: "/public/studyAbroad/europe.jpg",
-    links: "/europe",
-  },
+  // {
+  //   title: "STUDY IN EUROPE",
+  //   description: "In terms of research and education, Europe is a...",
+  //   imageSrc: "/public/studyAbroad/europe.jpg",
+  //   links: "/europe",
+  // },
   {
     title: "STUDY IN JAPAN",
     description: "Education System in Japan In the decades following world...",
@@ -35,7 +35,7 @@ const images: ImageCardProps[] = [
   {
     title: "STUDY IN CANADA",
     description: "Study system in the Canada are the two major intake...",
-    imageSrc:"/public/studyAbroad/canada.avif",
+    imageSrc: "/public/studyAbroad/canada.avif",
     links: "/study-abroad/canada-prepration",
   },
   {
