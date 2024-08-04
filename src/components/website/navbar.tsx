@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 
 import { IconTestPreparation } from "../svg-icons/IconTestPreparation";
-import { IconGlobe } from "../svg-icons/IconGlobe";
 import logo from "../../../public/logo/logo.png";
-import { Calendar, HammerIcon, Menu, X } from "lucide-react";
+import { Calendar, Menu, X } from "lucide-react";
 import { IconService } from "../svg-icons/IconService";
 // import { usePathname } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
@@ -12,11 +11,6 @@ import { Link, useLocation } from "react-router-dom";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 import usa from "../../../public/studyAbroad/australia.jpg";
-import canada from "../../../public/studyAbroad/canada.avif";
-import australia from "../../../public/studyAbroad/australia.jpg";
-import uk from "../../../public/studyAbroad/europe.jpg";
-import newzealand from "../../../public/studyAbroad/newZealand.jpg";
-import sk from "../../../public/studyAbroad/southkorea.webp";
 
 export default function Navbar() {
   const supabase = createClient(
@@ -49,7 +43,8 @@ export default function Navbar() {
         heading,
         thumbnail,
         shortDesc,
-        slug
+        slug,
+        flag
         `
         )
         .order("created_at", { ascending: false });
@@ -73,7 +68,8 @@ export default function Navbar() {
         heading,
         thumbnail,
         shortDesc,
-        slug
+        slug,
+        flag
         `
         )
         .order("created_at", { ascending: false });
@@ -97,7 +93,8 @@ export default function Navbar() {
         heading,
         thumbnail,
         shortDesc,
-        slug
+        slug,
+        flag
         `
         )
         .order("created_at", { ascending: false });
@@ -156,33 +153,7 @@ export default function Navbar() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // study abroad images
-  const studyAbroadImage = [
-    {
-      id: 1,
-      img: usa,
-    },
-    {
-      id: 1,
-      img: usa,
-    },
-    {
-      id: 1,
-      img: usa,
-    },
-    {
-      id: 1,
-      img: usa,
-    },
-    {
-      id: 1,
-      img: usa,
-    },
-    {
-      id: 1,
-      img: usa,
-    },
-  ];
+
   return (
     <>
       <nav
@@ -295,16 +266,24 @@ export default function Navbar() {
                                     <div className=" bg-secondary-950 h-10 w-10 flex items-center justify-center rounded-3xl">
                                       {item.title === "Abroad Study" && (
                                         <img
-                                          src={usa}
+                                          src={el.flag}
                                           alt={"abroad study"}
-                                          className="h-9 w-9 rounded-full"
+                                          className="h-10 w-10 object-cover rounded-full"
                                         />
                                       )}
                                       {item.title === "Test Preparation" && (
-                                        <IconTestPreparation className=" h-8 w-8 text-secondary-100" />
+                                        <img
+                                        src={el.flag}
+                                        alt={"test-preparation"}
+                                        className="h-10 w-10 object-cover rounded-full"
+                                      />
                                       )}
                                       {item.title === "Services" && (
-                                        <IconService className=" h-8 w-8 text-secondary-100" />
+                                        <img
+                                        src={el.flag}
+                                        alt={"services"}
+                                        className="h-10 w-10 object-cover rounded-full"
+                                      />
                                       )}
                                     </div>
                                   </div>
