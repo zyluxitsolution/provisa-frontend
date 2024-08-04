@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import mdimage from "../../public/team/bashu-nepal-md-provisa-nepal.jpg";
+import mdimage from "../../public/team/md-img.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";

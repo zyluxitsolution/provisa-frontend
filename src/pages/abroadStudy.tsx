@@ -4,6 +4,15 @@ import SectionHeader from "../components/website/section-header";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+//importing images
+import australia from "../../public/studyAbroad/australia.jpg";
+import canada from "../../public/studyAbroad/canada.avif";
+import usa from "../../public/studyAbroad/usa.jpg";
+import korea from "../../public/studyAbroad/southkorea.webp";
+import japan from "../../public/studyAbroad/japan.jpg";
+import bangladesh from "../../public/studyAbroad/bangladesh.webp";
+import newzealand from "../../public/studyAbroad/newZealand.jpg";
+import europe from "../../public/studyAbroad/europe.jpg";
 interface ImageCardProps {
   title: string;
   description: string;
@@ -16,39 +25,33 @@ const images: ImageCardProps[] = [
     title: "STUDY IN AUSTRALIA",
     description:
       "Australia has one of the best institutions and universities...",
-    imageSrc: "/public/studyAbroad/australia.jpg",
+    imageSrc: australia,
     links: "/australia",
   },
-  // {
-  //   title: "STUDY IN EUROPE",
-  //   description: "In terms of research and education, Europe is a...",
-  //   imageSrc: "/public/studyAbroad/europe.jpg",
-  //   links: "/europe",
-  // },
   {
     title: "STUDY IN JAPAN",
     description: "Education System in Japan In the decades following world...",
-    imageSrc: "/public/studyAbroad/japan.jpg",
+    imageSrc: japan,
     links: "/japan",
   },
 
   {
     title: "STUDY IN CANADA",
     description: "Study system in the Canada are the two major intake...",
-    imageSrc: "/public/studyAbroad/canada.avif",
+    imageSrc: canada,
     links: "/study-abroad/canada-prepration",
   },
   {
-    title: "STUDY IN JAPAN",
+    title: "STUDY IN Europe",
     description:
       "Study system in the Canada Its common knowledge that studying...",
-    imageSrc: "/public/studyAbroad/canada.avif",
-    links: "/canada",
+    imageSrc: europe,
+    links: "/europe",
   },
   {
     title: "STUDY IN USA",
     description: "Study system in the USA are the two major intake...",
-    imageSrc: "/public/studyAbroad/usa.jpg",
+    imageSrc: usa,
     links: "/usa",
   },
 ];
@@ -58,21 +61,21 @@ const additionalImages: ImageCardProps[] = [
     title: "STUDY IN SOUTH KOREA",
     description:
       "South Korea offers a dynamic environment for international students...",
-    imageSrc: "/studyAbroad/southkorea.webp",
+    imageSrc: korea,
     links: "/southkoreaa",
   },
   {
     title: "STUDY IN NEW ZEALAND",
     description:
       "New Zealand provides world-class education and unique opportunities...",
-    imageSrc: "/public/studyAbroad/newZealand.jpg",
+    imageSrc: newzealand,
     links: "/newzealand",
   },
   {
     title: "STUDY IN BANGLADESH",
     description:
       "Bangladesh offers diverse educational opportunities and vibrant culture...",
-    imageSrc: "/public/studyAbroad/bangladesh.webp",
+    imageSrc: bangladesh,
     links: "/bangladesh",
   },
 ];
