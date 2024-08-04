@@ -10,10 +10,7 @@ export default function Team() {
 
   useEffect(() => {
     const fetch = async () => {
-      let { data, error } = await supabase
-        .from("Team")
-        .select("*")
-        .order("created_at", { ascending: false });
+      let { data, error } = await supabase.from("Team").select("*").order("order", { ascending: true });
       if (error) {
         console.log(error.message);
         setIsFetching(false);
@@ -34,8 +31,7 @@ export default function Team() {
   return (
     <div
       className="w-full md:w-8/12 mx-auto space-y-20 px-4 md:px-0"
-      data-aos="zoom-out"
-    >
+      data-aos="zoom-out">
       <SectionHeader
         title="Our Team"
         heading="Meet our talent team"
@@ -47,8 +43,7 @@ export default function Team() {
             <li
               key={idx}
               className="flex flex-col gap-4 sm:flex-row group"
-              data-aos="zoom-in"
-            >
+              data-aos="zoom-in">
               <div className="w-full sm:w-6/12 flex flex-col items-center ">
                 <div className="border border-secondary-300 border-dotted h-80 rounded-md overflow-hidden relative group">
                   {item.thumbnail && (
@@ -56,23 +51,16 @@ export default function Team() {
                       src={item.thumbnail}
                       className="md:h-80 object-cover group-hover:-translate-y-px "
                       alt="img"
-                    
                     />
                   )}
                 </div>
                 <div className="mt-2 transition-transform transform group-hover:-translate-y-14 group-hover:bg-primary-500  text-center w-full duration-500">
-                  <h4 className="text-lg text-gray-700 group-hover:text-white font-semibold">
-                    {item.name}
-                  </h4>
-                  <p className="text-secondary-600 group-hover:text-white">
-                    {item.position}
-                  </p>
+                  <h4 className="text-lg text-gray-700 group-hover:text-white font-semibold">{item.name}</h4>
+                  <p className="text-secondary-600 group-hover:text-white">{item.position}</p>
                 </div>
               </div>
               <div className="w-full sm:w-6/12 mt-4 sm:mt-0">
-                <p className="text-gray-600 mt-2 text-justify">
-                  {item.description}
-                </p>
+                <p className="text-gray-600 mt-2 text-justify">{item.description}</p>
               </div>
             </li>
           ))}
