@@ -52,14 +52,12 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
-            <div className="space-y-3">
-              <div className="flex-none w-12 h-12 bg-primary-600 text-white rounded-lg flex items-center justify-center p-1">
+            <div className="space-y-3 relative">
+              <div className="flex-none w-14 h-14   text-white border-primary-600 border-2 rounded-full flex items-center justify-center ">
                 <img
                   src={item.thumbnail || ""}
                   alt={item.heading}
-                  width={48}
-                  height={48}
-                  className="rounded-md "
+                  className="rounded-full h-full w-full "
                 />
               </div>
               <h4 className="text-lg text-gray-800 font-semibold">
@@ -103,7 +101,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gray-100 border border-transparent group-hover:border-primary-600 relative z-20",
+        " rounded-2xl h-full w-full p-4 overflow-hidden bg-gray-100 border border-transparent group-hover:border-primary-500 hover:bg-primary-200 duration-500 relative z-20",
         className
       )}
     >
