@@ -159,7 +159,7 @@ import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 const TextParallaxContentExample: React.FC = () => {
-  const backgroundImageUrl = "../../../public/studyAbroad/newZealand.jpg";
+  const backgroundImageUrl = "/public/studyAbroad/newZealand.jpg";
   return (
     <div>
       <div className="my-[4rem]">
