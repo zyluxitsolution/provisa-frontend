@@ -153,7 +153,6 @@ export default function Navbar() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-
   return (
     <>
       <nav
@@ -262,28 +261,28 @@ export default function Navbar() {
                                   }/${el.slug}`}
                                   className="flex gap-3"
                                 >
-                                  <div className=" hidden md:block">
+                                  <div className=" block">
                                     <div className=" bg-secondary-950 h-10 w-10 flex items-center justify-center rounded-3xl">
                                       {item.title === "Abroad Study" && (
                                         <img
                                           src={el.flag}
                                           alt={"abroad study"}
-                                          className="h-10 w-10 object-cover rounded-full"
+                                          className="w-10 h-10 md:h-10 md:w-10 object-cover rounded-full"
                                         />
                                       )}
                                       {item.title === "Test Preparation" && (
                                         <img
-                                        src={el.flag}
-                                        alt={"test-preparation"}
-                                        className="h-10 w-10 object-cover rounded-full"
-                                      />
+                                          src={el.flag}
+                                          alt={"test-preparation"}
+                                          className="w-10 h-10 md:h-10 md:w-10 object-cover rounded-full"
+                                        />
                                       )}
                                       {item.title === "Services" && (
                                         <img
-                                        src={el.flag}
-                                        alt={"services"}
-                                        className="h-10 w-10 object-cover rounded-full"
-                                      />
+                                          src={el.flag}
+                                          alt={"services"}
+                                          className="w-10 h-10 md:h-10 md:w-10 object-cover rounded-full"
+                                        />
                                       )}
                                     </div>
                                   </div>
@@ -323,21 +322,20 @@ export default function Navbar() {
                 {/* code for showing resources links */}
                 {showResources && (
                   <div className="mt-6 bg-secondary-950 inset-x-0 top-20 w-full md:absolute md:border-y md:shadow-md md:mt-0 bg-black-950 md:h-fit h-[20rem] overflow-y-scroll md:overflow-hidden py-5">
-                    <div className=" px-2 md:px-0 md:w-[80%] mx-auto grid md:grid-cols-2 gap-4">
+                    <div className="px-2 md:px-0 md:w-[80%] mx-auto grid md:grid-cols-2 gap-4">
                       <Link
                         to={"/interwiew"}
-                        className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
+                        className="flex gap-3 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
                       >
-                        <div className=" bg-secondary-900 rounded-full h-10 w-10  hidden md:block mr-2 ">
+                        <div className="bg-secondary-900 rounded-full h-10 w-28 md:w-36 lg:w-16">
                           <img
                             src="/public/logo/interview.jpeg"
-                            alt=" interview"
-                            className=" h-full w-full object-cover rounded-full "
+                            alt="interview"
+                            className="h-full w-full object-cover rounded-full"
                           />
                         </div>
-                        <div className=" flex-col flex gap-1 text-sm text-white">
-                          <span className=" font-semibold text-lg">
-                            {" "}
+                        <div className="flex-col flex gap-1 text-sm text-white">
+                          <span className="font-semibold text-lg">
                             Interview Preperation
                           </span>
                           Visa interview is an important step prior to the final
@@ -348,23 +346,20 @@ export default function Navbar() {
 
                       <Link
                         to={"/biodata"}
-                        className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
+                        className="flex gap-3 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
                         onClick={() => {
                           setShowResources(false);
                         }}
                       >
-                        <div className=" bg-secondary-900 rounded-full relative h-10 w-10 mr-2  hidden md:block">
+                        <div className="bg-secondary-900 rounded-full relative h-10 w-22 md:w-28 lg:w-12  ">
                           <img
                             src="/public/logo/biodata.webp"
-                            alt=" interview"
-                            className=" h-full w-full object-fill rounded-full "
+                            alt="biodata"
+                            className="h-full w-full object-cover rounded-full"
                           />
                         </div>
-                        <div className=" flex-col flex gap-1 text-sm text-white">
-                          <span className=" font-semibold text-lg">
-                            {" "}
-                            BioData
-                          </span>
+                        <div className="flex-col flex gap-1 text-sm text-white">
+                          <span className="font-semibold text-lg">BioData</span>
                           The Curriculum Vitae serves as a good supplement to
                           your statement and other application materials.
                         </div>
@@ -372,21 +367,20 @@ export default function Navbar() {
 
                       <Link
                         to={"/sop"}
-                        className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
+                        className="flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
                         onClick={() => {
                           setShowResources(false);
                         }}
                       >
-                        <div className=" bg-secondary-900 rounded-full h-10 w-10 mr-2 hidden md:block">
+                        <div className="bg-secondary-900 rounded-full h-10 w-28 md:w-36 lg:w-16 mr-2 ">
                           <img
                             src="/public/logo/sop.jpeg"
-                            alt=" interview"
-                            className=" h-full w-full object-cover rounded-full"
+                            alt="sop"
+                            className="h-full w-full object-cover rounded-full"
                           />
                         </div>
-                        <div className=" flex-col flex gap-1 text-sm text-white">
-                          <span className=" font-semibold text-lg">
-                            {" "}
+                        <div className="flex-col flex gap-1 text-sm text-white">
+                          <span className="font-semibold text-lg">
                             Statement of Purpose
                           </span>
                           A Statement of Purpose (SOP) is a critical document
@@ -395,25 +389,24 @@ export default function Navbar() {
                         </div>
                       </Link>
 
-                      {/* couurse section */}
+                      {/* Course section */}
                       <Link
                         to="/courses"
-                        className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
+                        className="flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
                         onClick={() => {
                           setShowResources(false);
                         }}
                       >
-                        <div className=" bg-secondary-900 relative rounded-full h-10 w-10 mr-2 hidden md:block">
+                        <div className="bg-secondary-900 relative rounded-full h-10 md:w-24 lg:w-10 mr-2 ">
                           <img
                             src="/public/logo/selection.webp"
-                            alt=" interview"
-                            className=" h-full w-full object-cover rounded-full "
+                            alt="courses"
+                            className="h-full w-full object-cover rounded-full"
                           />
                         </div>
-                        <div className=" flex-col flex gap-1 text-sm text-white">
-                          <span className=" font-semibold text-lg">
-                            {" "}
-                            Course Selection{" "}
+                        <div className="flex-col flex gap-1 text-sm text-white">
+                          <span className="font-semibold text-lg">
+                            Course Selection
                           </span>
                           Selecting the right courses is crucial to achieving
                           your academic and career goals.
