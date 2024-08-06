@@ -189,7 +189,7 @@ export default function Navbar() {
                     {item.isDrapdown ? (
                       <button
                         type="button"
-                        className="w-full flex items-center justify-between gap-1 text-[ #333] hover:text-primary-600 duration-300 "
+                        className="w-full flex items-center justify-between gap-1 text-[ #333]  hover:text-primary-600 duration-300 "
                         onClick={() => {
                           setDrapdownState({
                             idx,
@@ -328,11 +328,11 @@ export default function Navbar() {
                         to={"/interwiew"}
                         className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
                       >
-                        <div className=" bg-secondary-900 rounded-full h-fit w-fit p-2 hidden md:block">
+                        <div className=" bg-secondary-900 rounded-full h-10 w-10  hidden md:block mr-2 ">
                           <img
-                            src="/public/team/icons8-interview-64.png"
+                            src="/public/logo/interview.jpeg"
                             alt=" interview"
-                            className=" h-8 w-8 "
+                            className=" h-full w-full object-cover rounded-full "
                           />
                         </div>
                         <div className=" flex-col flex gap-1 text-sm text-white">
@@ -345,6 +345,7 @@ export default function Navbar() {
                           countries including Australia, Canada, Germany,
                         </div>
                       </Link>
+
                       <Link
                         to={"/biodata"}
                         className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
@@ -352,11 +353,11 @@ export default function Navbar() {
                           setShowResources(false);
                         }}
                       >
-                        <div className=" bg-secondary-900 rounded-full h-fit p-2 hidden md:block">
+                        <div className=" bg-secondary-900 rounded-full relative h-10 w-10 mr-2  hidden md:block">
                           <img
-                            src="/public/team/icons8-cv-writing-53.png"
+                            src="/public/logo/biodata.webp"
                             alt=" interview"
-                            className=" h-8 w-8 "
+                            className=" h-full w-full object-fill rounded-full "
                           />
                         </div>
                         <div className=" flex-col flex gap-1 text-sm text-white">
@@ -368,6 +369,7 @@ export default function Navbar() {
                           your statement and other application materials.
                         </div>
                       </Link>
+
                       <Link
                         to={"/sop"}
                         className=" flex gap-1 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
@@ -375,11 +377,11 @@ export default function Navbar() {
                           setShowResources(false);
                         }}
                       >
-                        <div className=" bg-secondary-900 rounded-full h-fit p-2 hidden md:block">
+                        <div className=" bg-secondary-900 rounded-full h-10 w-10 mr-2 hidden md:block">
                           <img
-                            src="/public/team/icons8-interview-64.png"
+                            src="/public/logo/sop.jpeg"
                             alt=" interview"
-                            className=" h-8 w-8 "
+                            className=" h-full w-full object-cover rounded-full"
                           />
                         </div>
                         <div className=" flex-col flex gap-1 text-sm text-white">
@@ -401,11 +403,11 @@ export default function Navbar() {
                           setShowResources(false);
                         }}
                       >
-                        <div className=" bg-secondary-900 rounded-full h-fit p-2 hidden md:block">
+                        <div className=" bg-secondary-900 relative rounded-full h-10 w-10 mr-2 hidden md:block">
                           <img
-                            src="/public/team/icons8-interview-64.png"
+                            src="/public/logo/selection.webp"
                             alt=" interview"
-                            className=" h-8 w-8 "
+                            className=" h-full w-full object-cover rounded-full "
                           />
                         </div>
                         <div className=" flex-col flex gap-1 text-sm text-white">
@@ -423,7 +425,7 @@ export default function Navbar() {
               </div>
               <div className="flex-1 items-center animate-pulse  justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
                 <Link to={"/appointment"}>
-                  <Button>
+                  <Button className=" bg-gradient-to-r from-f4300b to-ffa726 text-white rounded-md shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     {" "}
                     <Calendar size={16} className=" mr-1" /> Book an Appointment
                   </Button>

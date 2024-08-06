@@ -4,6 +4,17 @@ import SectionHeader from "../components/website/section-header";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+//importing images
+import australia from "../../public/studyAbroad/australia.jpg";
+import canada from "../../public/studyAbroad/canada.avif";
+import usa from "../../public/studyAbroad/usa.jpg";
+import korea from "../../public/studyAbroad/southkorea.webp";
+import japan from "../../public/studyAbroad/japan.jpg";
+import bangladesh from "../../public/studyAbroad/bangladesh.webp";
+import newzealand from "../../public/studyAbroad/newZealand.jpg";
+import europe from "../../public/studyAbroad/europe.jpg";
+import china from "../../public/studyAbroad/china.jpg";
+import dubai from "../../public/studyAbroad/dubai.avif";
 interface ImageCardProps {
   title: string;
   description: string;
@@ -16,39 +27,33 @@ const images: ImageCardProps[] = [
     title: "STUDY IN AUSTRALIA",
     description:
       "Australia has one of the best institutions and universities...",
-    imageSrc: "/public/studyAbroad/australia.jpg",
+    imageSrc: australia,
     links: "/australia",
   },
-  // {
-  //   title: "STUDY IN EUROPE",
-  //   description: "In terms of research and education, Europe is a...",
-  //   imageSrc: "/public/studyAbroad/europe.jpg",
-  //   links: "/europe",
-  // },
   {
     title: "STUDY IN JAPAN",
     description: "Education System in Japan In the decades following world...",
-    imageSrc: "/public/studyAbroad/japan.jpg",
+    imageSrc: japan,
     links: "/japan",
   },
 
   {
     title: "STUDY IN CANADA",
     description: "Study system in the Canada are the two major intake...",
-    imageSrc: "/public/studyAbroad/canada.avif",
+    imageSrc: canada,
     links: "/study-abroad/canada-prepration",
   },
-  // {
-  //   title: "STUDY IN JAPAN",
-  //   description:
-  //     "Study system in the Canada Its common knowledge that studying...",
-  //   imageSrc: "/public/studyAbroad/canada.avif",
-  //   links: "/canada",
-  // },
+  {
+    title: "STUDY IN Europe",
+    description:
+      "Study system in the Canada Its common knowledge that studying...",
+    imageSrc: europe,
+    links: "/europe",
+  },
   {
     title: "STUDY IN USA",
     description: "Study system in the USA are the two major intake...",
-    imageSrc: "/public/studyAbroad/usa.jpg",
+    imageSrc: usa,
     links: "/usa",
   },
 ];
@@ -57,23 +62,37 @@ const additionalImages: ImageCardProps[] = [
   {
     title: "STUDY IN SOUTH KOREA",
     description:
-      "South Korea offers a dynamic environment for international students...",
-    imageSrc: "/studyAbroad/southkorea.webp",
+      "South Korea offers a dynamic environment for international students with its innovative education system and vibrant cultural experience.",
+    imageSrc: korea,
     links: "/southkoreaa",
   },
   {
     title: "STUDY IN NEW ZEALAND",
     description:
-      "New Zealand provides world-class education and unique opportunities...",
-    imageSrc: "/public/studyAbroad/newZealand.jpg",
+      "New Zealand provides world-class education and unique opportunities to explore its stunning landscapes and multicultural society.",
+    imageSrc: newzealand,
     links: "/newzealand",
   },
   {
     title: "STUDY IN BANGLADESH",
     description:
-      "Bangladesh offers diverse educational opportunities and vibrant culture...",
-    imageSrc: "/public/studyAbroad/bangladesh.webp",
+      "Bangladesh offers diverse educational opportunities and a vibrant cultural experience, with affordable tuition and a supportive academic environment.",
+    imageSrc: bangladesh,
     links: "/bangladesh",
+  },
+  {
+    title: "STUDY IN DUBAI",
+    description:
+      "Dubai offers a luxurious educational experience with its modern campuses and global career opportunities, blending tradition with innovation.",
+    imageSrc: dubai,
+    links: "/dubai",
+  },
+  {
+    title: "STUDY IN CHINA",
+    description:
+      "China provides a rich cultural experience and high-quality education, with numerous scholarships and opportunities for international students.",
+    imageSrc: china,
+    links: "/china",
   },
 ];
 
@@ -84,7 +103,10 @@ const LargeImageCard: React.FC<ImageCardProps> = ({
   links,
 }) => {
   return (
-    <div className="relative group overflow-hidden rounded-lg shadow-lg h-[30rem] ">
+    <div
+      className="relative group overflow-hidden rounded-lg shadow-lg h-[30rem]"
+      data-aos="zoom-out"
+    >
       <div className="relative w-full h-full">
         <img
           src={imageSrc}
@@ -93,7 +115,7 @@ const LargeImageCard: React.FC<ImageCardProps> = ({
         />
       </div>
       <div className="absolute inset-0 bg-[#f4310a] bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 flex flex-col justify-center items-center p-4">
-        <h3 className="text-lg lg:text-2xl font-bold text-white mb-2 opacity-0 group-hover:opacity-100 transition duration-300">
+        <h3 className="text-lg lg:text-2xl font-bold text-white mb-2 opacity-0 group-hover:opacity-100 transition duration-500">
           {title}
         </h3>
         <p className="text-sm lg:text-base text-white opacity-0 group-hover:opacity-100 transition duration-300">
@@ -120,7 +142,10 @@ const SmallImageCard: React.FC<ImageCardProps> = ({
   links,
 }) => {
   return (
-    <div className="relative group overflow-hidden rounded-lg shadow-lg h-[15rem]">
+    <div
+      className="relative group overflow-hidden rounded-lg shadow-lg h-[15rem]"
+      data-aos="zoom-out"
+    >
       <div className="relative w-full h-full">
         <img
           src={imageSrc}
@@ -128,8 +153,8 @@ const SmallImageCard: React.FC<ImageCardProps> = ({
           className="object-cover w-full h-full"
         />
       </div>
-      <div className="absolute inset-0 bg-[#f4310a] bg-opacity-0 group-hover:bg-opacity-50 transition duration-300 flex flex-col justify-center items-center p-4">
-        <h3 className="text-lg lg:text-2xl font-bold text-white mb-2 opacity-0 group-hover:opacity-100 transition duration-300">
+      <div className="absolute inset-0 bg-[#f4310a] bg-opacity-0 group-hover:bg-opacity-50 transition duration-500 flex flex-col justify-center items-center p-4">
+        <h3 className="text-lg lg:text-2xl font-bold text-white mb-2 opacity-0 group-hover:opacity-100 transition duration-500">
           {title}
         </h3>
         <p className="text-sm lg:text-base text-white opacity-0 group-hover:opacity-100 transition duration-300">

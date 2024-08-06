@@ -5,6 +5,8 @@ import Footer from "./components/website/footer";
 import MessageBtn from "./pages/messageBtn";
 import "./App.css";
 import Sop from "./pages/sop";
+import Dubai from "./pages/abroadStudy/Dubai";
+import China from "./pages/abroadStudy/China";
 
 // Dynamic imports
 const Home = lazy(() => import("./pages/home"));
@@ -74,6 +76,8 @@ export default function App() {
               <Route path="/newzealand" element={<NewZealand />} />
               <Route path="/canada" element={<Canada />} />
               <Route path="/europe" element={<Europe />} />
+              <Route path="/dubai" element={<Dubai />} />
+              <Route path="/china" element={<China />} />
               <Route path="/sop" element={<Sop />} />
             </Routes>
           </Suspense>

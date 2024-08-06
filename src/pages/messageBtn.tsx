@@ -1,7 +1,7 @@
 // src/components/FloatingActionButton.tsx
 
 import React, { useState } from "react";
-import { FaFacebookMessenger, FaWhatsapp, FaPlus } from "react-icons/fa";
+import { FaFacebookF, FaWhatsapp, FaPlus } from "react-icons/fa";
 
 export default function MessageBtn() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -26,7 +26,7 @@ export default function MessageBtn() {
               className="mb-3 transform transition-transform duration-300"
             >
               <div className="bg-blue-500 text-white p-3 rounded-full shadow-lg transform hover:scale-110 z-[99999]">
-                <FaFacebookMessenger size={20} />
+                <FaFacebookF size={20} />
               </div>
             </a>
             <a

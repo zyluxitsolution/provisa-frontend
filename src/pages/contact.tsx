@@ -69,7 +69,9 @@ export default function Contact() {
                 {item.title}
               </h4>
               <div className="mt-3 flex items-center gap-x-3">
-                <div className="flex-none text-primary-600 animate-bounce duration-700">{item.icon}</div>
+                <div className="flex-none text-primary-600 animate-bounce duration-700">
+                  {item.icon}
+                </div>
                 <p className="text-gray-600  tracking-wide leading-relaxed">
                   {item.contact}
                 </p>
@@ -95,118 +97,150 @@ export default function Contact() {
         </div> */}
       </section>
 
-      <section data-aos="fade-up">
+      <section data-aos="fade-up" className="p-8 rounded-lg shadow-lg ">
         <SectionHeader
           title="Send us your doubts"
-          heading="  Do you have any questions?"
-          description="We’re here to help and answer any question you might have, We look forward to hearing from you! Please fill out the form, or us the contact information bellow ."
+          heading="Do you have any questions?"
+          description="We’re here to help and answer any questions you might have. We look forward to hearing from you! Please fill out the form or use the contact information below."
         />
-
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">
-          <div className="flex flex-col items-center gap-y-5 gap-x-6 [&>*]:w-full sm:flex-row">
-            <div>
-              <label className="font-medium">Full Name</label>
-              <input
-                placeholder="Kumar Shrestha"
-                type="text"
-                className="globalinput"
-                {...register("fullName", { required: true })}
-              />
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 mt-6">
+          <div className="flex flex-col gap-y-6 sm:flex-row sm:gap-x-6">
+            <div className="relative w-full">
+              <label className="font-semibold">Full Name</label>
+              <div className="relative mt-2">
+                <input
+                  placeholder="Kumar Shrestha"
+                  type="text"
+                  className="globalinput w-full p-3 pl-10 bg-white text-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-2 "
+                  {...register("fullName", { required: true })}
+                />
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <i className="fas fa-user"></i>
+                </span>
+              </div>
               {errors.fullName && (
-                <span className=" text-[12px] text-primary-600">
+                <span className="text-sm text-red-500">
                   This field is required
                 </span>
               )}
             </div>
 
-            <div>
-              <label className="font-medium">Email Address</label>
-              <input
-                placeholder="example@gmail.com"
-                type="text"
-                className="globalinput"
-                {...register("email", { required: true })}
-              />
+            <div className="relative w-full">
+              <label className="font-semibold">Email Address</label>
+              <div className="relative mt-2">
+                <input
+                  placeholder="example@gmail.com"
+                  type="email"
+                  className="globalinput w-full p-3 pl-10 bg-white text-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-2 "
+                  {...register("email", { required: true })}
+                />
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <i className="fas fa-envelope"></i>
+                </span>
+              </div>
               {errors.email && (
-                <span className=" text-[12px] text-primary-600">
+                <span className="text-sm text-red-500">
                   This field is required
                 </span>
               )}
             </div>
           </div>
 
-          <div className="flex flex-col items-center gap-y-5 gap-x-6 [&>*]:w-full sm:flex-row">
-            <div>
-              <label className="font-medium">Phone Number</label>
-              <input
-                placeholder="9864755749 "
-                type="number"
-                className="globalinput"
-                {...register("phone", {
-                  required: true,
-                  minLength: 10,
-                  maxLength: 10,
-                })}
-              />
+          <div className="flex flex-col gap-y-6 sm:flex-row sm:gap-x-6">
+            <div className="relative w-full">
+              <label className="font-semibold">Phone Number</label>
+              <div className="relative mt-2">
+                <input
+                  placeholder="9864755749"
+                  type="number"
+                  className="globalinput w-full p-3 pl-10 bg-white text-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-2 "
+                  {...register("phone", {
+                    required: true,
+                    minLength: 10,
+                    maxLength: 10,
+                  })}
+                />
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <i className="fas fa-phone"></i>
+                </span>
+              </div>
               {errors.phone && (
-                <span className=" text-[12px] text-primary-600">
+                <span className="text-sm text-red-500">
                   This field is required
                 </span>
               )}
             </div>
 
-            <div>
-              <label className="font-medium">Address</label>
-              <input
-                placeholder="Kadadhari Kathmandu"
-                type="text"
-                className="globalinput"
-                {...register("address", { required: true })}
-              />
+            <div className="relative w-full">
+              <label className="font-semibold">Address</label>
+              <div className="relative mt-2">
+                <input
+                  placeholder="Kadadhari Kathmandu"
+                  type="text"
+                  className="globalinput w-full p-3 pl-10 bg-white text-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-2 "
+                  {...register("address", { required: true })}
+                />
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <i className="fas fa-map-marker-alt"></i>
+                </span>
+              </div>
               {errors.address && (
-                <span className=" text-[12px] text-primary-600">
+                <span className="text-sm text-red-500">
                   This field is required
                 </span>
               )}
             </div>
           </div>
 
-          <div>
-            <label className="font-medium">Subject</label>
-            <input
-              placeholder=" When does the IELTS class start?"
-              type="text"
-              className="globalinput"
-              {...register("subject", { required: true })}
-            />
+          <div className="relative w-full">
+            <label className="font-semibold">Subject</label>
+            <div className="relative mt-2">
+              <input
+                placeholder="When does the IELTS class start?"
+                type="text"
+                className="globalinput w-full p-3 pl-10 bg-white text-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-2 "
+                {...register("subject", { required: true })}
+              />
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                <i className="fas fa-info-circle"></i>
+              </span>
+            </div>
             {errors.subject && (
-              <span className=" text-[12px] text-primary-600">
+              <span className="text-sm text-red-500">
                 This field is required
               </span>
             )}
           </div>
 
-          <div>
-            <label className="font-medium">Message</label>
-            <textarea
-              placeholder="I am interested in the IELTS class, please let me know when the class starts."
-              className="globalinput h-40"
-              {...register("message", { required: true })}
-            />
+          <div className="relative w-full">
+            <label className="font-semibold">Message</label>
+            <div className="relative mt-2">
+              <textarea
+                placeholder="I am interested in the IELTS class, please let me know when the class starts."
+                className="globalinput w-full h-40 p-3 pl-10 bg-white text-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-2 "
+                {...register("message", { required: true })}
+              />
+              <span className="absolute left-3 top-3 text-gray-400">
+                <i className="fas fa-comment-dots"></i>
+              </span>
+            </div>
             {errors.message && (
-              <span className=" text-[12px] text-primary-600">
+              <span className="text-sm text-red-500">
                 This field is required
               </span>
             )}
           </div>
-          <Button className=" float-end flex items-center gap-1">
-            {isCreating ? (
-              <Loader size={16} className=" animate-spin" />
-            ) : (
-              <Send size={16} />
-            )}{" "}
-            Send Message
-          </Button>
+
+          <div className=" w-full text-end">
+            <Button className="w-full sm:w-auto px-6 py-3 mt-4 bg-gradient-to-r from-f4300b to-ffa726 text-white rounded-md shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 right-0">
+              {isCreating ? (
+                <Loader size={16} className="animate-spin" />
+              ) : (
+                <Send size={16} />
+              )}
+              <span className="ml-2">Send Message</span>
+            </Button>
+          </div>
         </form>
       </section>
 
