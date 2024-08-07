@@ -327,11 +327,11 @@ export default function Navbar() {
                         to={"/interwiew"}
                         className="flex gap-3 hover:bg-secondary-900/40 px-2 py-4 rounded-md duration-300"
                       >
-                        <div className="bg-secondary-900 rounded-full h-10 w-28 md:w-36 lg:w-16">
+                        <div className=" bg-secondary-900 rounded-full h-10 w-10  hidden md:block mr-2 ">
                           <img
                             src="/public/logo/interview.jpeg"
-                            alt="interview"
-                            className="h-full w-full object-cover rounded-full"
+                            alt=" interview"
+                            className=" h-full w-full object-cover rounded-full "
                           />
                         </div>
                         <div className="flex-col flex gap-1 text-sm text-white">
@@ -351,11 +351,11 @@ export default function Navbar() {
                           setShowResources(false);
                         }}
                       >
-                        <div className="bg-secondary-900 rounded-full relative h-10 w-22 md:w-28 lg:w-12  ">
+                        <div className=" bg-secondary-900 rounded-full relative h-10 w-10 mr-2  hidden md:block">
                           <img
                             src="/public/logo/biodata.webp"
-                            alt="biodata"
-                            className="h-full w-full object-cover rounded-full"
+                            alt=" interview"
+                            className=" h-full w-full object-fill rounded-full "
                           />
                         </div>
                         <div className="flex-col flex gap-1 text-sm text-white">
@@ -372,11 +372,11 @@ export default function Navbar() {
                           setShowResources(false);
                         }}
                       >
-                        <div className="bg-secondary-900 rounded-full h-10 w-28 md:w-36 lg:w-16 mr-2 ">
+                        <div className=" bg-secondary-900 rounded-full h-10 w-10 mr-2 hidden md:block">
                           <img
                             src="/public/logo/sop.jpeg"
-                            alt="sop"
-                            className="h-full w-full object-cover rounded-full"
+                            alt=" interview"
+                            className=" h-full w-full object-cover rounded-full"
                           />
                         </div>
                         <div className="flex-col flex gap-1 text-sm text-white">
@@ -397,11 +397,11 @@ export default function Navbar() {
                           setShowResources(false);
                         }}
                       >
-                        <div className="bg-secondary-900 relative rounded-full h-10 md:w-24 lg:w-10 mr-2 ">
+                        <div className=" bg-secondary-900 relative rounded-full h-10 w-10 mr-2 hidden md:block">
                           <img
                             src="/public/logo/selection.webp"
-                            alt="courses"
-                            className="h-full w-full object-cover rounded-full"
+                            alt=" interview"
+                            className=" h-full w-full object-cover rounded-full "
                           />
                         </div>
                         <div className="flex-col flex gap-1 text-sm text-white">
@@ -416,7 +416,7 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-              <div className="flex-1 items-center animate-pulse  justify-end gap-x-6 space-y-3 md:flex md:space-y-0">
+              <div className="flex-1 items-center justify-end gap-x-6 space-y-3 md:flex md:space-y-0 ">
                 <Link to={"/appointment"}>
                   <Button className=" bg-gradient-to-r from-f4300b to-ffa726 text-white rounded-md shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     {" "}
